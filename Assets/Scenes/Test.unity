@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Wall (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4597083723928965758, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6386105549034151094, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -203,6 +207,10 @@ PrefabInstance:
     - target: {fileID: 4597083723928965758, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
       propertyPath: m_Name
       value: Test Wall (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597083723928965758, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6386105549034151094, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
       propertyPath: m_RootOrder
@@ -274,6 +282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 4597083723928965758, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6386105549034151094, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -343,6 +355,10 @@ PrefabInstance:
     - target: {fileID: 4597083723928965758, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
       propertyPath: m_Name
       value: Test Wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597083723928965758, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6386105549034151094, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
       propertyPath: m_RootOrder
@@ -523,6 +539,10 @@ PrefabInstance:
     - target: {fileID: 4597083723928965758, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
       propertyPath: m_Name
       value: Test Wall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597083723928965758, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6386105549034151094, guid: e3671c6899597bc40bc70a5ef7675ed1, type: 3}
       propertyPath: m_RootOrder
@@ -836,7 +856,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.5195196, y: 1}
+    m_SensorSize: {x: 0.834166, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -856,9 +876,21 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3420405946741589052, guid: ea9f1b49683294149bc7b4c55d4a6c0d, type: 3}
+      propertyPath: blinkDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681485775318071903, guid: ea9f1b49683294149bc7b4c55d4a6c0d, type: 3}
+      propertyPath: mask.m_Bits
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 6853578283892702362, guid: ea9f1b49683294149bc7b4c55d4a6c0d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853578283892702362, guid: ea9f1b49683294149bc7b4c55d4a6c0d, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8712635147083541662, guid: ea9f1b49683294149bc7b4c55d4a6c0d, type: 3}
       propertyPath: m_RootOrder

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerParameters : MonoBehaviour
 {
+    [Header("General")]
     [SerializeField] private bool isAlive;
 
+    [Header("Movement")]
     [SerializeField] private float movementSpeed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float blinkDistance;
 
     public float GetMovementSpeed()
     {
@@ -37,5 +40,10 @@ public class PlayerParameters : MonoBehaviour
     public void SetIsAlive(bool _newValue)
     {
         isAlive = _newValue;
+    }
+
+    public float GetBlinkDistance()
+    {
+        return blinkDistance;
     }
 }
