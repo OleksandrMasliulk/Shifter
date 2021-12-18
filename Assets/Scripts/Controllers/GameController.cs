@@ -28,40 +28,60 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         Player.OnPlayerDied += Lose;
+        Stabilizer.OnPlayerEnter += Win;
 
         LevelStart();
     }
 
-    private void LevelStart()
+    private void Update()
     {
-        StartCoroutine(ZoomIn());
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Restart();
+        }
     }
 
-    IEnumerator ZoomIn()
+    private void LevelStart()
     {
-        float startSize = cinemachineCam.m_Lens.OrthographicSize;
-        float finalSize = 6.5f;
-        float time = 2f;
-        float currTime = 0f;
+        //StartCoroutine(ZoomIn());
+    }
 
-        while (currTime <= time)
-        {
-            cinemachineCam.m_Lens.OrthographicSize = Mathf.Lerp(startSize, finalSize, currTime / time);
+    //IEnumerator ZoomIn()
+    //{
+    //   float startSize = cinemachineCam.m_Lens.OrthographicSize;
+    //    float finalSize = 6.5f;
+    //    float time = 2f;
+    //    float currTime = 0f;
 
-            currTime += Time.deltaTime;
-            yield return new WaitForSeconds(Time.deltaTime);
-        }
+    //    while (currTime <= time)
+    //    {
+    //        cinemachineCam.m_Lens.OrthographicSize = Mathf.Lerp(startSize, finalSize, currTime / time);
 
-        OnCameraZoomedIn?.Invoke();
+    //        currTime += Time.deltaTime;
+    //        yield return new WaitForSeconds(Time.deltaTime);
+    //    }
+
+    //    OnCameraZoomedIn?.Invoke();
+    //}
+
+    private void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void Lose()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Restart();
+    }
+
+    private void Win()
+    {
+        Debug.LogWarning("Player WON");
     }
 
     private void OnDisable()
     {
         Player.OnPlayerDied -= Lose;
+        Stabilizer.OnPlayerEnter -= Win;
     }
 }

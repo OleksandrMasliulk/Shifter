@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerParameters), typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    public delegate void StartMoving();
+    public static event StartMoving OnStartMoving;
+
     private PlayerParameters parameters;
     private Rigidbody2D rb;
 
@@ -52,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move(int _direction)
     {
+        OnStartMoving?.Invoke();
+
         NulifyVelocityX();
         transform.Translate(transform.right * _direction * parameters.GetMovementSpeed() * Time.deltaTime);
     }

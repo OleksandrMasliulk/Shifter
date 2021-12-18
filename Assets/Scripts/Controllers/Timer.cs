@@ -15,7 +15,8 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
-        GameController.OnCameraZoomedIn += StartCountdown;
+        PlayerMovement.OnStartMoving += StartCountdown;
+        Stabilizer.OnPlayerEnter += StopCountdown;
 
         DisplayTimer(timeRemaining);
     }
@@ -23,6 +24,12 @@ public class Timer : MonoBehaviour
     public void StartCountdown()
     {
         isCounting = true;
+        PlayerMovement.OnStartMoving -= StartCountdown;
+    }
+
+    public void StopCountdown()
+    {
+        isCounting = false;
     }
 
     private void Update()
@@ -62,6 +69,7 @@ public class Timer : MonoBehaviour
 
     private void OnDisable()
     {
-        GameController.OnCameraZoomedIn -= StartCountdown;
+        PlayerMovement.OnStartMoving -= StartCountdown;
+        Stabilizer.OnPlayerEnter -= StopCountdown;
     }
 }
