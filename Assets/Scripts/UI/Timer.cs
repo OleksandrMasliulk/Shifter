@@ -58,13 +58,23 @@ public class Timer : MonoBehaviour
         OnTimeIsOut?.Invoke();
     }
 
+    private string FormatTime() 
+    {
+        float minutes = Mathf.FloorToInt(timeRemaining / 60);
+        float seconds = Mathf.FloorToInt(timeRemaining % 60);
+        float milliSeconds = (timeRemaining % 1) * 1000;
+
+        return string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliSeconds);
+    }
+
     private void DisplayTimer(float time)
     {
-        float minutes = Mathf.FloorToInt(time / 60);
-        float seconds = Mathf.FloorToInt(time % 60);
-        float milliSeconds = (time % 1) * 1000;
+        indicator.text = FormatTime();
+    }
 
-        indicator.text = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliSeconds);
+    public string GetTimeAsString()
+    {
+        return FormatTime();
     }
 
     private void OnDisable()

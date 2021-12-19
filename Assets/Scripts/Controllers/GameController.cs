@@ -11,6 +11,9 @@ public class GameController : MonoBehaviour
     public delegate void CameraZoomedIn();
     public static event CameraZoomedIn OnCameraZoomedIn;
 
+    public delegate void PlayerWin();
+    public static event PlayerWin OnPlayerWin;
+
     [SerializeField] private CinemachineVirtualCamera cinemachineCam;
 
     private void Awake()
@@ -64,7 +67,7 @@ public class GameController : MonoBehaviour
     //    OnCameraZoomedIn?.Invoke();
     //}
 
-    private void Restart()
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -76,7 +79,7 @@ public class GameController : MonoBehaviour
 
     private void Win()
     {
-        Debug.LogWarning("Player WON");
+        OnPlayerWin?.Invoke();
     }
 
     private void OnDisable()
