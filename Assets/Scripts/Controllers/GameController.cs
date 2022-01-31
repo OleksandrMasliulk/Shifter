@@ -72,6 +72,21 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void NextLevel()
+    {
+        int nextLevelID;
+        if (SceneManager.sceneCountInBuildSettings - 1 > SceneManager.GetActiveScene().buildIndex)
+        {
+            nextLevelID = SceneManager.GetActiveScene().buildIndex + 1;
+        }
+        else
+        {
+            return;
+        }
+
+        LevelController.Instance.LoadLevel(nextLevelID);
+    }
+
     private void Lose()
     {
         Restart();
