@@ -10,9 +10,16 @@ public class WinPanel : MonoBehaviour
     [SerializeField] private float showDelay;
     [SerializeField] private Text timeLeftText;
 
+    [SerializeField] private Button nextButton;
+    [SerializeField] private Button retryButton;
+    [SerializeField] private Button mmenuButton;
+
     private void Start()
     {
         GameController.OnPlayerWin += ShowPanel;
+        nextButton.onClick.AddListener(GameController.Instance.NextLevel);
+        retryButton.onClick.AddListener(GameController.Instance.Restart);
+        mmenuButton.onClick.AddListener(delegate { LevelController.Instance.LoadLevel(0); });
 
         gameObject.SetActive(false);
     }
