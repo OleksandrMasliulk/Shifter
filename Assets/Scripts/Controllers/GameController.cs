@@ -94,6 +94,13 @@ public class GameController : MonoBehaviour
 
     private void Win()
     {
+        bool val;
+        if (PlayerData.levelsDone.ContainsKey(SceneManager.GetActiveScene().buildIndex)) 
+        {
+            PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex] = true;
+        }
+        SaveLoad.Save();
+
         OnPlayerWin?.Invoke();
     }
 

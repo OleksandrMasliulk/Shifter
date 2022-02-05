@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -9,6 +10,16 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        SaveLoad.Load();
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            bool val;
+            if (PlayerData.levelsDone.TryGetValue(i, out val))
+            {
+                Debug.Log("Level: " + i + ", " + val);
+            };
+        }
+
         playButton.onClick.AddListener(Contiunue);
     }
 
