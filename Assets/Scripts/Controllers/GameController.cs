@@ -42,6 +42,11 @@ public class GameController : MonoBehaviour
         {
             Restart();
         }
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            MainMenu();
+        }
     }
 
     private void LevelStart()
@@ -70,6 +75,11 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void NextLevel()
