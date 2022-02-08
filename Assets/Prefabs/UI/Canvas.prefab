@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 762294693504006901}
   - component: {fileID: 762294693504006902}
   - component: {fileID: 762294693504006903}
+  - component: {fileID: 8388768985672314574}
   m_Layer: 5
   m_Name: WinPlanel
   m_TagString: Untagged
@@ -343,6 +344,21 @@ MonoBehaviour:
   nextButton: {fileID: 762294694009983093}
   retryButton: {fileID: 762294693823857080}
   mmenuButton: {fileID: 2654724330999116080}
+--- !u!114 &8388768985672314574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762294693504006889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
 --- !u!1 &762294693519928453
 GameObject:
   m_ObjectHideFlags: 0
