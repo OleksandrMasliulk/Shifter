@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8467479520668855992}
   - component: {fileID: 3343474358698435792}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8056121960511135063}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7806346124487028955}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fake Platform Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 4003097782540451459}
   - component: {fileID: 986649023898205223}
   - component: {fileID: 4305230070614116771}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,4 +274,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakeObj: {fileID: 5359586088345120970}
-  timeBeforeBreak: 1.5
+  timeBeforeBreak: 1

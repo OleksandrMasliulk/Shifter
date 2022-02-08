@@ -50,7 +50,7 @@ public class FakePlatform : MonoBehaviour
 
     private void Break()
     {
-        Destroy(transform.root.gameObject);
+        Destroy(transform.parent.parent.gameObject);
     }
 
     private void Reset()
