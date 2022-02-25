@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
-
+using static PlayerData;
 public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; }
@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
 
     public delegate void PlayerWin();
     public static event PlayerWin OnPlayerWin;
+
+    [SerializeField] private Timer timer;
 
     [SerializeField] private CinemachineVirtualCamera cinemachineCam;
 
@@ -104,14 +106,22 @@ public class GameController : MonoBehaviour
 
     private void Win()
     {
-        bool val;
+        OnPlayerWin?.Invoke();
+
         if (PlayerData.levelsDone.ContainsKey(SceneManager.GetActiveScene().buildIndex)) 
         {
-            PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex] = true;
+            float timeLeft;
+            if (PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex].time >= timer.GetTime())
+            {
+                timeLeft = PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex].time;
+            }
+            else
+            {
+                timeLeft = timer.GetTime();
+            }
+            PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex] = new LevelData(true, timeLeft);
         }
         SaveLoad.Save();
-
-        OnPlayerWin?.Invoke();
     }
 
     private void OnDisable()

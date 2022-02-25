@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94896d8d87160b41b1565e6dedf97ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 1692974589}
   cinemachineCam: {fileID: 1589615816}
 --- !u!4 &220317938
 Transform:
@@ -1657,6 +1658,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 762294693823857080, guid: f97cda6fab1fffd4b8c7a7b0d58bc745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 220317937}
+    - target: {fileID: 762294693823857080, guid: f97cda6fab1fffd4b8c7a7b0d58bc745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 762294694009983093, guid: f97cda6fab1fffd4b8c7a7b0d58bc745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 220317937}
+    - target: {fileID: 762294694009983093, guid: f97cda6fab1fffd4b8c7a7b0d58bc745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 762294694752725410, guid: f97cda6fab1fffd4b8c7a7b0d58bc745, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1745,8 +1762,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2654724330999116080, guid: f97cda6fab1fffd4b8c7a7b0d58bc745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 220317937}
+    - target: {fileID: 2654724330999116080, guid: f97cda6fab1fffd4b8c7a7b0d58bc745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f97cda6fab1fffd4b8c7a7b0d58bc745, type: 3}
+--- !u!114 &1692974589 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 762294693580185574, guid: f97cda6fab1fffd4b8c7a7b0d58bc745, type: 3}
+  m_PrefabInstance: {fileID: 1692974588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1489db74156968428e455578d8e9236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1843952388
 PrefabInstance:
   m_ObjectHideFlags: 0

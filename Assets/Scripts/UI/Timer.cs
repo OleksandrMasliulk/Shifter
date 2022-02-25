@@ -77,6 +77,11 @@ public class Timer : MonoBehaviour
         return FormatTime();
     }
 
+    public float GetTime()
+    {
+        return timeRemaining;
+    }
+
     private void OnDisable()
     {
         PlayerMovement.OnStartMoving -= StartCountdown;

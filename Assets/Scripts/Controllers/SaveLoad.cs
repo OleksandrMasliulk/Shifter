@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using static PlayerData;
 
 public static class SaveLoad
 {
@@ -40,10 +41,11 @@ public static class SaveLoad
         {
             //PlayerData.levelsDone = new PlayerProgress().levelsDone;
             int levelsCount = SceneManager.sceneCountInBuildSettings;
-            PlayerData.levelsDone = new Dictionary<int, bool>();
+            PlayerData.levelsDone = new Dictionary<int, LevelData>();
             for (int i = 1; i < levelsCount; i++)
             {
-                PlayerData.levelsDone.Add(i, false);
+                LevelData lvlData = new LevelData(false, 0f);
+                PlayerData.levelsDone.Add(i, lvlData);
             }
 
             Save();
@@ -56,11 +58,11 @@ public static class SaveLoad
 [System.Serializable]
 public class PlayerProgress
 {
-    public Dictionary<int, bool> levelsDone;
+    public Dictionary<int, LevelData> levelsDone;
 
     public PlayerProgress()
     {
-        levelsDone = new Dictionary<int, bool>();
+        levelsDone = new Dictionary<int, LevelData>();
         levelsDone = PlayerData.levelsDone;
     }
 }
