@@ -86,6 +86,7 @@ public class GameController : MonoBehaviour
 
     public void NextLevel()
     {
+        Debug.Log("START");
         int nextLevelID;
         if (SceneManager.sceneCountInBuildSettings - 1 > SceneManager.GetActiveScene().buildIndex)
         {
@@ -97,6 +98,7 @@ public class GameController : MonoBehaviour
         }
 
         LevelController.Instance.LoadLevel(nextLevelID);
+        Debug.Log("END");
     }
 
     private void Lose()
@@ -121,6 +123,7 @@ public class GameController : MonoBehaviour
             }
             PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex] = new LevelData(true, timeLeft);
         }
+
         SaveLoad.Save();
     }
 
