@@ -10,9 +10,12 @@ public class Player : MonoBehaviour
 
     private PlayerParameters parameters;
 
+    private Dictionary<float, Vector3> pointsInTime;
+
     private void Start()
     {
         parameters = GetComponent<PlayerParameters>();
+        pointsInTime = new Dictionary<float, Vector3>();
 
         Timer.OnTimeIsOut += Die;
         Stabilizer.OnPlayerEnter += SetUnactive;
@@ -29,6 +32,28 @@ public class Player : MonoBehaviour
         parameters.SetIsAlive(false);
 
         OnPlayerDied?.Invoke();
+    }
+
+    private void FixedUpdate()
+    {
+        RecordPosition();
+    }
+
+    private void RecordPosition()
+    {
+        pointsInTime.Add(Time.fixedTime, transform.position);
+    }
+
+    public Vector3 GetPointInTime(float time)
+    {
+        if (pointsInTime.ContainsKey(time))
+        {
+            return pointsInTime[time];
+        }
+        else
+        {
+            return Vector3.zero;
+        }
     }
 
     private void OnDisable()
