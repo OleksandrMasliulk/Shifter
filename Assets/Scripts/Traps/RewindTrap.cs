@@ -9,7 +9,7 @@ public class RewindTrap : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Player player = collision.collider.GetComponent<Player>();
+        PlayerController player = collision.collider.GetComponent<PlayerController>();
 
         if (player != null)
         {
@@ -17,12 +17,12 @@ public class RewindTrap : MonoBehaviour
         }
     }
 
-    private void Activate(Player target)
+    private void Activate(PlayerController target)
     {
         float rewindTime = Time.fixedTime - time;
-        if (target.GetPointInTime(rewindTime) != Vector3.zero)
+        if (target.GetPlayerTimeBody().GetPointInTime(rewindTime) != Vector3.zero)
         {
-            target.transform.position = target.GetPointInTime(rewindTime);
+            target.transform.position = target.GetPlayerTimeBody().GetPointInTime(rewindTime);
             Deactivate();
         }
         else

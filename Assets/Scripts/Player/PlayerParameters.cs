@@ -6,15 +6,95 @@ public class PlayerParameters : MonoBehaviour
 {
     [Header("General")]
     [SerializeField] private bool isAlive;
+    public bool a_isAlive 
+    {
+        get 
+        {
+            return isAlive;
+        }
+        private set
+        {
+            SetIsAlive(value);
+        }
+    }
 
     [Header("Movement")]
     [SerializeField] private float movementSpeed;
-    [SerializeField] private float jumpForce;
-    [SerializeField] private float blinkDistance;
-
-    public float GetMovementSpeed()
+    public float a_movementSpeed
     {
-        return movementSpeed;
+        get
+        {
+            return movementSpeed;
+        }
+        private set
+        {
+            SetMovementSpeed(value);
+        }
+    }
+
+    [SerializeField] private float jumpForce;
+    public float a_jumpForce
+    {
+        get
+        {
+            return jumpForce;
+        }
+        private set
+        {
+            SetJumpForce(value);
+        }
+    }
+
+    [SerializeField] private float wallSlideSpeed;
+    public float a_wallSlideSpeed
+    {
+        get
+        {
+            return wallSlideSpeed;
+        }
+        set
+        {
+            SetWallSlideSpeed(value);
+        }
+    }
+
+    [SerializeField] private float wallJumpAngle;
+    public float a_wallJumpAngle
+    {
+        get
+        {
+            return wallJumpAngle;
+        }
+        set
+        {
+            SetWallJumpAngle(value);
+        }
+    }
+
+    [SerializeField] private float wallJumForce;
+    public float a_wallJumpForce
+    {
+        get
+        {
+            return wallJumForce;
+        }
+        set
+        {
+            SetWallJumpForce(value);
+        }
+    }
+
+    [SerializeField] private float blinkDistance;
+    public float a_blinkDistance
+    {
+        get
+        {
+            return blinkDistance;
+        }
+        private set
+        {
+            SetBlinkDistance(value);
+        }
     }
 
     public void SetMovementSpeed(float _newValue)
@@ -22,19 +102,9 @@ public class PlayerParameters : MonoBehaviour
         movementSpeed = _newValue;
     }
 
-    public float GetJumpForce()
-    {
-        return jumpForce;
-    }
-
     public void SetJumpForce(float _newValue)
     {
         jumpForce = _newValue;
-    }
-
-    public bool GetIsAlive()
-    {
-        return isAlive;
     }
 
     public void SetIsAlive(bool _newValue)
@@ -42,8 +112,23 @@ public class PlayerParameters : MonoBehaviour
         isAlive = _newValue;
     }
 
-    public float GetBlinkDistance()
+    public void SetBlinkDistance(float _newValue)
     {
-        return blinkDistance;
+        blinkDistance = _newValue;
     }
-}
+
+    public void SetWallSlideSpeed(float newValue)
+    {
+        wallSlideSpeed = newValue;
+    }
+
+    public void SetWallJumpAngle(float newValue)
+    {
+        wallJumpAngle = newValue;
+    }
+
+    public void SetWallJumpForce(float newValue)
+    {
+        wallJumForce = newValue;
+    }
+ }

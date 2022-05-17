@@ -30,7 +30,7 @@ public class FakePlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Player player = collision.collider.GetComponent<Player>();
+        PlayerController player = collision.collider.GetComponent<PlayerController>();
 
         if (player != null)
         {
@@ -40,7 +40,7 @@ public class FakePlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Player player = collision.collider.GetComponent<Player>();
+        PlayerController player = collision.collider.GetComponent<PlayerController>();
 
         if (player != null)
         {

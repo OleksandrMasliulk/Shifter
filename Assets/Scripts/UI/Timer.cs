@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         PlayerMovement.OnStartMoving += StartCountdown;
-        Stabilizer.OnPlayerEnter += StopCountdown;
+        GameController.OnPlayerWin += StopCountdown;
 
         DisplayTimer(timeRemaining);
     }
@@ -84,7 +84,6 @@ public class Timer : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerMovement.OnStartMoving -= StartCountdown;
-        Stabilizer.OnPlayerEnter -= StopCountdown;
+        GameController.OnPlayerWin -= StopCountdown;
     }
 }

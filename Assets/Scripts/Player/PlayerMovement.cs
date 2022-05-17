@@ -1,151 +1,109 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerParameters), typeof(Rigidbody2D))]
-public class PlayerMovement : MonoBehaviour
+[RequireComponent(typeof(PlayerController), typeof(Rigidbody2D))]
+public class PlayerMovement : MonoBehaviour, IMove
 {
     public delegate void StartMoving();
     public static event StartMoving OnStartMoving;
 
-    private PlayerParameters parameters;
+    private PlayerController playerController;
     private Rigidbody2D rb;
 
-    [SerializeField]private LayerMask mask;
+    [Header("Grouund Check")]
+    [SerializeField]private LayerMask groundLayer;
+    [SerializeField]private Transform groundCheck;
+    [SerializeField] private Vector2 groundCheckBounds;
 
-    private bool isOnGround;
-    private bool isOnWall;
+    [Header("Wall Check")]
+    [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private Transform wallCheck;
+    [SerializeField] private Vector2 wallCheckBounds;
+
 
     private float lastDirection;
 
     private void Start()
     {
-        parameters = GetComponent<PlayerParameters>();
+        playerController = GetComponent < PlayerController>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        if (parameters.GetIsAlive())
+        if (WallCheck())
         {
-            float direction = Input.GetAxisRaw("Horizontal");
-
-            if (Mathf.Abs(direction) > 0)
-            {
-                Move((int)direction);
-            }
-
-            if (Input.GetButtonDown("Jump"))
-            {
-                Jump();
-            }
-
-            if (Input.GetButtonDown("Blink"))
-            {
-                Blink();
-            }
-
-            if (Mathf.Abs(direction) > 0)
-            {
-                lastDirection = direction;
-                Debug.Log(lastDirection);
-            }
+            rb.velocity = new Vector2(0f, Mathf.Clamp(rb.velocity.y, playerController.GetPlayerParameters().a_wallSlideSpeed, float.MaxValue));
         }
     }
 
-    private void Move(int _direction)
+    public void Jump()
     {
+        if (GroundCheck())
+            rb.velocity = new Vector2(rb.velocity.x, playerController.GetPlayerParameters().a_jumpForce);
+
+        if (WallCheck())
+        {
+            Vector2 direction = new Vector2(-playerController.GetPlayerGraphicsController().GetGraphicsScale().x, playerController.GetPlayerParameters().a_wallJumpAngle * Mathf.Deg2Rad).normalized;
+
+            Debug.DrawLine(transform.position, transform.position + (Vector3)direction * playerController.GetPlayerParameters().a_jumpForce, Color.red, 5f);
+            rb.velocity = direction * playerController.GetPlayerParameters().a_wallJumpForce;
+            playerController.GetPlayerGraphicsController().SwitchDirectionHorizontal();
+        }
+    }
+
+    public void Move(Vector2 direction)
+    {
+        rb.velocity = new Vector2(0f, rb.velocity.y);
+        transform.Translate(direction * playerController.GetPlayerParameters().a_movementSpeed * Time.deltaTime);
+        //rb.velocity = new Vector2(direction.normalized.x * playerController.GetPlayerParameters().a_movementSpeed, rb.velocity.y);
+
+        if (direction.x > 0f)
+        {
+            playerController.GetPlayerGraphicsController().SetGraphicsHorizontal(true);
+        }
+        else if (direction.x < 0f)
+        {
+            playerController.GetPlayerGraphicsController().SetGraphicsHorizontal(false);
+        }
+
         OnStartMoving?.Invoke();
-
-        NulifyVelocityX();
-        transform.Translate(transform.right * _direction * parameters.GetMovementSpeed() * Time.deltaTime);
     }
 
-    private void Jump()
+    private bool GroundCheck()
     {
-        if (isOnGround)
+        Collider2D[] cols = Physics2D.OverlapBoxAll(groundCheck.position, groundCheckBounds, 0, groundLayer);
+        if (cols.Length > 0)
         {
-            rb.AddForce(transform.up * parameters.GetJumpForce(), ForceMode2D.Impulse);
-        }
-        else if (isOnWall)
-        {
-            NulifyVelocityY();
-
-            Vector2 dir = (Quaternion.Euler(0, 0f, 30f) * transform.up) * new Vector2(lastDirection, 1f);
-            rb.AddForce(dir * parameters.GetJumpForce() * 1.5f, ForceMode2D.Impulse);
-
-            lastDirection *= -1f;
-        }
-    }
-
-    private void Blink()
-    {
-        float direction = lastDirection;
-        if (Mathf.Abs(direction) != 1)
-        {
-            direction = 1;
-        }
-
-        Vector2 destination;
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right * direction, parameters.GetBlinkDistance(), mask);
-        Debug.DrawLine(transform.position, transform.position + transform.right * direction * parameters.GetBlinkDistance(), Color.red, 3f);
-
-        if (hit.collider != null)
-        {
-            destination = hit.point;
-            Debug.Log(hit.collider.name);
+            return true;
         }
         else
         {
-            destination = transform.position + transform.right * direction * parameters.GetBlinkDistance();
+            return false;
         }
-
-        transform.position = destination;
     }
-
-    public void SetIsOnGround(bool _newValue)
+    
+    private bool WallCheck()
     {
-        isOnGround = _newValue;
-    }
-
-    public void SetIsOnWall(bool _newValue)
-    {
-        isOnWall = _newValue;
-
-        if (isOnWall)
+        Collider2D[] cols = Physics2D.OverlapBoxAll(wallCheck.position, wallCheckBounds, 0,  wallLayer);
+        if (cols.Length > 0)
         {
-            StickToTheWall();
+            return true;
         }
         else
         {
-            UnstickOffTheWall();
+            return false;
         }
     }
 
-    private void StickToTheWall()
+    private void OnDrawGizmos()
     {
-        rb.gravityScale /= 4f;
-    }
+        //Ground Check circle
+        Gizmos.DrawWireCube(groundCheck.position, groundCheckBounds);
 
-    private void UnstickOffTheWall()
-    {
-        rb.gravityScale *= 4f;
-    }
-
-    private void NulifyVelocityX()
-    {
-        if (Mathf.Abs(rb.velocity.x) > 0)
-        {
-            rb.velocity = new Vector2(0f, rb.velocity.y);
-        }
-    }
-
-    private void NulifyVelocityY()
-    {
-        if (Mathf.Abs(rb.velocity.y) > 0)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 0f);
-        }
+        //Wall Check circle
+        Gizmos.DrawWireCube(wallCheck.position, wallCheckBounds);
     }
 }

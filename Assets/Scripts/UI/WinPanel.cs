@@ -6,35 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class WinPanel : MonoBehaviour
 {
-    [SerializeField] private Timer timer;
-
     [SerializeField] private float showDelay;
     [SerializeField] private Text timeLeftText;
     [SerializeField] private Text bestTimeText;
     [SerializeField] private Text timeDelta;
 
-    [SerializeField] private Button nextButton;
-    [SerializeField] private Button retryButton;
-    [SerializeField] private Button mmenuButton;
-
     private void Start()
     {
         GameController.OnPlayerWin += ShowPanel;
-        nextButton.onClick.AddListener(GameController.Instance.NextLevel);
-        retryButton.onClick.AddListener(GameController.Instance.Restart);
-        mmenuButton.onClick.AddListener(delegate { LevelController.Instance.LoadLevel(0); });
 
         gameObject.SetActive(false);
     }
 
     private void InitPanel()
     {
-        timeLeftText.text = timer.GetTimeAsString();
+        timeLeftText.text = GameController.Instance.GetTimer().GetTimeAsString();
         if (PlayerData.levelsDone.ContainsKey(SceneManager.GetActiveScene().buildIndex))
         {
             bestTimeText.text = FormatTime(PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex].time);
 
-            float delta = timer.GetTime() - PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex].time;
+            float delta = GameController.Instance.GetTimer().GetTime() - PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex].time;
             if (delta > 0)
             {
                 timeDelta.text = "+";
@@ -68,6 +59,33 @@ public class WinPanel : MonoBehaviour
         float milliSeconds = (time % 1) * 1000;
 
         return string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliSeconds);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void NextLevel()
+    {
+        Debug.Log("START");
+        int nextLevelID;
+        if (SceneManager.sceneCountInBuildSettings - 1 > SceneManager.GetActiveScene().buildIndex)
+        {
+            nextLevelID = SceneManager.GetActiveScene().buildIndex + 1;
+        }
+        else
+        {
+            return;
+        }
+
+        LevelController.Instance.LoadLevel(nextLevelID);
+        Debug.Log("END");
     }
 
     private void OnDestroy()

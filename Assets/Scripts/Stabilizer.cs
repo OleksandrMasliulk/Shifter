@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Stabilizer : MonoBehaviour
 {
-    public delegate void PlayerEnter();
-    public static event PlayerEnter OnPlayerEnter;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Player player = collision.GetComponent<Player>();
+        PlayerController player = collision.GetComponent<PlayerController>();
 
         if (player != null)
         {
-            OnPlayerEnter?.Invoke();
+            GameController.Instance.Win();
         }
     }
 }
