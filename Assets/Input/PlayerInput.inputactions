@@ -146,6 +146,72 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "1D Axis",
+                    "id": "20bb1b32-3926-4d8a-b5c5-a1dee7f4c868",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "50188828-3197-4ea5-a756-b1dabada899a",
+                    "path": "<DualShockGamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "19dd6294-58d7-43cc-9169-41a5a9faac6b",
+                    "path": "<DualShockGamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "8aecda59-9e78-429f-886f-763948477cec",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "1e2136a7-a787-47a9-a8b9-5d724d0fd063",
+                    "path": "<DualShockGamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "836c4c78-d5a4-40f4-9409-9fc50d5f9804",
+                    "path": "<DualShockGamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "426df9d8-c713-4826-89b2-efce469a59e2",
                     "path": "<Keyboard>/w",
@@ -180,11 +246,44 @@
                 },
                 {
                     "name": "",
+                    "id": "621f4b78-5afa-4028-8ea4-0f6e0476ab93",
+                    "path": "<DualShockGamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c0e8510-1c0b-49e2-a20f-ea8452baf8a8",
+                    "path": "<DualShockGamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3cc38cbc-08ae-474d-8203-7e3d0e135191",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
+                    "action": "Blink",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b62a8b7b-77a3-44ad-b0ec-d8e16a5c4afc",
+                    "path": "<DualShockGamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
                     "action": "Blink",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -202,11 +301,33 @@
                 },
                 {
                     "name": "",
+                    "id": "a6a88a5a-e68d-40c3-848d-83decb4c6aee",
+                    "path": "<DualShockGamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Blink Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "740a2879-60d8-4bc0-91c1-a6b9a371045d",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
+                    "action": "Blink Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e57abcd-d14a-4c9c-b4df-3c6bd472bde4",
+                    "path": "<DualShockGamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
                     "action": "Blink Right",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -224,6 +345,17 @@
                 },
                 {
                     "name": "",
+                    "id": "8088f42b-da86-4ecb-bb64-4ce8655c6bf5",
+                    "path": "<DualShockGamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Call Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b5fa0f56-dd86-4ce8-98c0-f6b76d8c602a",
                     "path": "<Keyboard>/r",
                     "interactions": "",
@@ -235,11 +367,33 @@
                 },
                 {
                     "name": "",
+                    "id": "e9a2b7d8-0c65-4bc9-a6a4-d28b108b3cb0",
+                    "path": "<DualShockGamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c7997266-b4a9-4517-81c6-fc4c18371545",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
+                    "action": "Main Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "343f7f9b-7055-4597-8dc7-3ca82e70c1d2",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
                     "action": "Main Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -301,6 +455,17 @@
                 },
                 {
                     "name": "",
+                    "id": "e99a920a-34d5-4ea5-99ce-a76a24fc5ea3",
+                    "path": "<DualShockGamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c7e34a5d-6345-429e-8209-4e1c6d8ed164",
                     "path": "<Keyboard>/backspace",
                     "interactions": "",
@@ -317,6 +482,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d68efa9c-1680-4446-8a8b-1c3540aabfab",
+                    "path": "<DualShockGamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
                     "action": "Back",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -345,6 +521,28 @@
                 },
                 {
                     "name": "",
+                    "id": "ebfd9344-7513-471d-8625-5c042642ec2b",
+                    "path": "<DualShockGamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Scroll Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c509f388-83f7-4f2a-aeeb-6f7c4a0f4e59",
+                    "path": "<DualShockGamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Scroll Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1c18e38b-7165-45bc-9a90-62974dd2b71a",
                     "path": "<Keyboard>/w",
                     "interactions": "",
@@ -361,6 +559,28 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
+                    "action": "Scroll Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "453b6d10-e461-43d9-b187-21a8ceb2608d",
+                    "path": "<DualShockGamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
+                    "action": "Scroll Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8682b341-ecdf-495f-a58f-19064e6ef552",
+                    "path": "<DualShockGamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4Controller",
                     "action": "Scroll Up",
                     "isComposite": false,
                     "isPartOfComposite": false
