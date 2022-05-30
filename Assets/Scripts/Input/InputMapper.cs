@@ -234,6 +234,72 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""4d96cf3f-5bed-4a58-bfc2-210b3bdaf91e"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""457897e2-3e26-4b33-86d6-4393ec53572e"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""5947c126-bf0d-454e-bcb8-75ba498a0945"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""f7e85fc8-3508-410e-bad5-3ead08c7fd11"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""97b879cf-63f3-4f69-bd38-6978fa5a5a25"",
+                    ""path"": ""<XInputController>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""2bb95950-b4eb-49bc-8cb0-27a875579db8"",
+                    ""path"": ""<XInputController>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""426df9d8-c713-4826-89b2-efce469a59e2"",
                     ""path"": ""<Keyboard>/w"",
@@ -290,6 +356,50 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""a053eee7-e958-4553-bac4-66ed902c59b5"",
+                    ""path"": ""<DualShockGamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PS4Controller"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be305fc4-0feb-4587-b66e-a05ae9826f42"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b817344d-17e3-44bb-94fd-7d5f61ce4fc2"",
+                    ""path"": ""<XInputController>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd8096a8-9061-4fec-aeee-3ff577ad8924"",
+                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""3cc38cbc-08ae-474d-8203-7e3d0e135191"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
@@ -306,6 +416,17 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PS4Controller"",
+                    ""action"": ""Blink"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1acb7906-da24-4935-8bd2-8bcc52f975cb"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
                     ""action"": ""Blink"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -334,6 +455,17 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""50f72e5b-58ab-4f4f-94a0-f440b24914e3"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Blink Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""740a2879-60d8-4bc0-91c1-a6b9a371045d"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -350,6 +482,17 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PS4Controller"",
+                    ""action"": ""Blink Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8dda4a64-2d93-43c2-a2d1-4b4c8630ad8d"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
                     ""action"": ""Blink Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -378,6 +521,17 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ec994576-f80c-473c-9b35-3afce12a9a9a"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Call Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b5fa0f56-dd86-4ce8-98c0-f6b76d8c602a"",
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
@@ -400,6 +554,17 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c8afb94c-4eee-4092-9ec9-c5bdabc0d975"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c7997266-b4a9-4517-81c6-fc4c18371545"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -416,6 +581,17 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PS4Controller"",
+                    ""action"": ""Main Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97b56d97-f58e-42e4-92d0-70c6890309c0"",
+                    ""path"": ""<XInputController>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
                     ""action"": ""Main Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -445,18 +621,36 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Scroll Down"",
+                    ""name"": ""Navigate"",
+                    ""type"": ""Value"",
+                    ""id"": ""88ba74d9-cb06-4363-8014-f9b813249efd"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Mouse Point"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""a4ea6895-de1e-4aa3-9a02-89c80bdb70a2"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LMB"",
                     ""type"": ""Button"",
-                    ""id"": ""03ceedb6-56ae-4685-a178-86636b3b5c3b"",
+                    ""id"": ""40b92346-85ee-4026-8fd4-508e9a61ca52"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Scroll Up"",
+                    ""name"": ""RMB"",
                     ""type"": ""Button"",
-                    ""id"": ""339597b1-890d-4a90-b897-c3eac2380677"",
+                    ""id"": ""1f71ec1f-f244-4a47-ada1-670f2d4ff5c9"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -482,6 +676,17 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PS4Controller"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d47a7a96-e30b-4990-a9e1-35258253ce31"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
                     ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -521,89 +726,265 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b28853d2-752f-4bfb-ae6e-c07e57f03b43"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""id"": ""58487789-9a07-4d4b-b4c8-eaf4e0a7e123"",
+                    ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Scroll Down"",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""ac6927bd-38b9-47dd-93f8-137f9318994b"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""name"": ""WASD"",
+                    ""id"": ""ea499027-0cfa-45dd-9427-479f37516d7b"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Scroll Down"",
-                    ""isComposite"": false,
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""ebfd9344-7513-471d-8625-5c042642ec2b"",
-                    ""path"": ""<DualShockGamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""PS4Controller"",
-                    ""action"": ""Scroll Down"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c509f388-83f7-4f2a-aeeb-6f7c4a0f4e59"",
-                    ""path"": ""<DualShockGamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""PS4Controller"",
-                    ""action"": ""Scroll Down"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1c18e38b-7165-45bc-9a90-62974dd2b71a"",
+                    ""name"": ""up"",
+                    ""id"": ""d3da3648-0cb4-46cc-98fb-628c06359659"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Scroll Up"",
+                    ""action"": ""Navigate"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e511a26d-070c-432c-8b3c-818c4fde98c0"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""4afc2fdf-03d5-4b86-8ab3-b8033dae25e3"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""f3bcdb60-7db8-4d48-911e-29f081aa35f1"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""d5073f7f-290a-4ff5-9af0-b0118837ff42"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""40e585d5-af8a-4c98-a42e-ea64a0c2beb0"",
+                    ""name"": ""up"",
+                    ""id"": ""171476f5-4c9e-4bc8-b738-178006545826"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Scroll Up"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""2249d102-9eee-49b5-aac6-7c7a5ddeb9d5"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""bb9e87b7-35c0-4323-8be8-7b02b9e3dc54"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""51324a7e-cd21-4ef6-94a3-4e26800a3dc8"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""D-Pad"",
+                    ""id"": ""9307a61a-3dbc-42ab-a7c2-07956d5903c1"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""1c7fb986-c324-489d-8ecd-30f8d85ad32e"",
+                    ""path"": ""<XInputController>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""ccc5fd55-528a-414f-91a3-2a0b3b89625b"",
+                    ""path"": ""<XInputController>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""97a28b1d-2c0a-4fa8-b391-86f9207e9e07"",
+                    ""path"": ""<XInputController>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c5ed8c1c-eb81-4892-8adf-7fe82b2cdb86"",
+                    ""path"": ""<XInputController>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left Stick"",
+                    ""id"": ""feb060a4-674a-4759-8793-d66930470e0f"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""3d67887e-ed1c-4434-b72f-1f10f7fe6912"",
+                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""192c8194-c49a-4bdb-8145-4dea5f5b4f53"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""e4c46dd8-3d38-4c21-9504-a63990f4ab6c"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""66628f02-2b5e-4e13-bb84-9b2b2acc14ec"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4dfd578b-d1c8-4091-b9a8-9956cf70f437"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Mouse Point"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""453b6d10-e461-43d9-b187-21a8ceb2608d"",
-                    ""path"": ""<DualShockGamepad>/dpad/up"",
+                    ""id"": ""23315cbd-036b-4b20-baa1-fde07c030d12"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PS4Controller"",
-                    ""action"": ""Scroll Up"",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""LMB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8682b341-ecdf-495f-a58f-19064e6ef552"",
-                    ""path"": ""<DualShockGamepad>/leftStick/up"",
+                    ""id"": ""919434df-7e15-4ebf-be07-bb0dd7b1084d"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PS4Controller"",
-                    ""action"": ""Scroll Up"",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""RMB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -660,8 +1041,10 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_Back = m_UI.FindAction("Back", throwIfNotFound: true);
-        m_UI_ScrollDown = m_UI.FindAction("Scroll Down", throwIfNotFound: true);
-        m_UI_ScrollUp = m_UI.FindAction("Scroll Up", throwIfNotFound: true);
+        m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
+        m_UI_MousePoint = m_UI.FindAction("Mouse Point", throwIfNotFound: true);
+        m_UI_LMB = m_UI.FindAction("LMB", throwIfNotFound: true);
+        m_UI_RMB = m_UI.FindAction("RMB", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -812,16 +1195,20 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Submit;
     private readonly InputAction m_UI_Back;
-    private readonly InputAction m_UI_ScrollDown;
-    private readonly InputAction m_UI_ScrollUp;
+    private readonly InputAction m_UI_Navigate;
+    private readonly InputAction m_UI_MousePoint;
+    private readonly InputAction m_UI_LMB;
+    private readonly InputAction m_UI_RMB;
     public struct UIActions
     {
         private @InputMapper m_Wrapper;
         public UIActions(@InputMapper wrapper) { m_Wrapper = wrapper; }
         public InputAction @Submit => m_Wrapper.m_UI_Submit;
         public InputAction @Back => m_Wrapper.m_UI_Back;
-        public InputAction @ScrollDown => m_Wrapper.m_UI_ScrollDown;
-        public InputAction @ScrollUp => m_Wrapper.m_UI_ScrollUp;
+        public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
+        public InputAction @MousePoint => m_Wrapper.m_UI_MousePoint;
+        public InputAction @LMB => m_Wrapper.m_UI_LMB;
+        public InputAction @RMB => m_Wrapper.m_UI_RMB;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -837,12 +1224,18 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                 @Back.started -= m_Wrapper.m_UIActionsCallbackInterface.OnBack;
                 @Back.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnBack;
                 @Back.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnBack;
-                @ScrollDown.started -= m_Wrapper.m_UIActionsCallbackInterface.OnScrollDown;
-                @ScrollDown.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnScrollDown;
-                @ScrollDown.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnScrollDown;
-                @ScrollUp.started -= m_Wrapper.m_UIActionsCallbackInterface.OnScrollUp;
-                @ScrollUp.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnScrollUp;
-                @ScrollUp.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnScrollUp;
+                @Navigate.started -= m_Wrapper.m_UIActionsCallbackInterface.OnNavigate;
+                @Navigate.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnNavigate;
+                @Navigate.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnNavigate;
+                @MousePoint.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMousePoint;
+                @MousePoint.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMousePoint;
+                @MousePoint.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMousePoint;
+                @LMB.started -= m_Wrapper.m_UIActionsCallbackInterface.OnLMB;
+                @LMB.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnLMB;
+                @LMB.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnLMB;
+                @RMB.started -= m_Wrapper.m_UIActionsCallbackInterface.OnRMB;
+                @RMB.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnRMB;
+                @RMB.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnRMB;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -853,12 +1246,18 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                 @Back.started += instance.OnBack;
                 @Back.performed += instance.OnBack;
                 @Back.canceled += instance.OnBack;
-                @ScrollDown.started += instance.OnScrollDown;
-                @ScrollDown.performed += instance.OnScrollDown;
-                @ScrollDown.canceled += instance.OnScrollDown;
-                @ScrollUp.started += instance.OnScrollUp;
-                @ScrollUp.performed += instance.OnScrollUp;
-                @ScrollUp.canceled += instance.OnScrollUp;
+                @Navigate.started += instance.OnNavigate;
+                @Navigate.performed += instance.OnNavigate;
+                @Navigate.canceled += instance.OnNavigate;
+                @MousePoint.started += instance.OnMousePoint;
+                @MousePoint.performed += instance.OnMousePoint;
+                @MousePoint.canceled += instance.OnMousePoint;
+                @LMB.started += instance.OnLMB;
+                @LMB.performed += instance.OnLMB;
+                @LMB.canceled += instance.OnLMB;
+                @RMB.started += instance.OnRMB;
+                @RMB.performed += instance.OnRMB;
+                @RMB.canceled += instance.OnRMB;
             }
         }
     }
@@ -905,7 +1304,9 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
     {
         void OnSubmit(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
-        void OnScrollDown(InputAction.CallbackContext context);
-        void OnScrollUp(InputAction.CallbackContext context);
+        void OnNavigate(InputAction.CallbackContext context);
+        void OnMousePoint(InputAction.CallbackContext context);
+        void OnLMB(InputAction.CallbackContext context);
+        void OnRMB(InputAction.CallbackContext context);
     }
 }

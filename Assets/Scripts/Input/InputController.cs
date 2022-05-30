@@ -18,6 +18,8 @@ public class InputController : MonoBehaviour
     private InputMapper inputMapper;
     [SerializeField] private InputMode initialMode;
 
+    [SerializeField] private UIPanel activePanel;
+
     private void Awake()
     {
         if (Instance == null)
@@ -31,6 +33,28 @@ public class InputController : MonoBehaviour
 
         inputMapper = new InputMapper();
         SwitchInputMode(initialMode);
+    }
+
+    private void Start()
+    {
+        
+        //playerInput.onControlsChanged += PlayerInput_onControlsChanged;
+    }
+
+    private void OnBack()
+    {
+        activePanel.OnBack();
+    }
+
+    public void SetActivePanel(UIPanel panel)
+    {
+        activePanel = panel;
+    }
+
+    private void OnControlsChanged()
+    {
+        foreach (InputDevice device in playerInput.devices)
+            Debug.Log("New Device: " + device);
     }
 
     public void SwitchInputMode(InputMode mode)
