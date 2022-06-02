@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
-using static PlayerData;
+using System.IO;
+
 public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; }
@@ -12,6 +13,7 @@ public class GameController : MonoBehaviour
     public static event PlayerWin OnPlayerWin;
 
     [SerializeField] private Timer timer;
+    [SerializeField] private WinPanel winPanel;
 
     //[SerializeField] private CinemachineVirtualCamera cinemachineCam;
 
@@ -44,28 +46,49 @@ public class GameController : MonoBehaviour
     public void Win()
     {
         InputController.Instance.SwitchInputMode(InputController.InputMode.UI);
+        winPanel.ShowPanelDelayed(1f);
+
+        HandleBestLevelTime();
         OnPlayerWin?.Invoke();
-
-        if (PlayerData.levelsDone.ContainsKey(SceneManager.GetActiveScene().buildIndex)) 
-        {
-            float timeLeft;
-            if (PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex].time >= timer.GetTime())
-            {
-                timeLeft = PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex].time;
-            }
-            else
-            {
-                timeLeft = timer.GetTime();
-            }
-            PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex] = new LevelData(true, timeLeft);
-        }
-
-        SaveLoad.Save();
     }
 
     public Timer GetTimer()
     {
         return timer;
+    }
+
+    private void HandleBestLevelTime() 
+    {
+        PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
+        if (data == null)
+        {
+            data = new PlayerData();
+        }
+
+        if (data.levelsDone.ContainsKey(SceneManager.GetActiveScene().buildIndex))
+        {
+            float bestTime = data.GetLevelTime(SceneManager.GetActiveScene().buildIndex);
+            if (bestTime < timer.GetTime())
+            {
+                data.levelsDone[SceneManager.GetActiveScene().buildIndex] = new PlayerData.LevelData(true, timer.GetTime());
+                SaveLoad.Save(data, SaveLoad.levelsDataPath);
+            }
+        }
+        else
+        {
+            data.levelsDone.Add(SceneManager.GetActiveScene().buildIndex, new PlayerData.LevelData(true, timer.GetTime()));
+            SaveLoad.Save(data, SaveLoad.levelsDataPath);
+        }
+
+        TestJson(data.levelsDone[SceneManager.GetActiveScene().buildIndex].bestTime);
+    }
+
+    private void TestJson(float time)
+    {
+        SavePackage package = new SavePackage("PlayerName", SceneManager.GetActiveScene().buildIndex, time);
+        string json = SaveLoad.ToJson<SavePackage>(package);
+        File.WriteAllText(Application.persistentDataPath + "/TestJson_" + package.levelIndex + ".json", json);
+        Debug.Log(json);
     }
 
     private void OnDisable()

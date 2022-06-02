@@ -5,31 +5,29 @@ using UnityEngine.UI;
 using static PlayerData;
 public class LevelSelectionButton : MonoBehaviour
 {
-    [SerializeField] private int levelID;
-
     [SerializeField] private Text levelIDText;
     [SerializeField] private Text bestTimeText;
     [SerializeField] private Button button;
 
-    private void Start()
+    public void Init(PlayerData data, int levelIndex)
     {
-        InitVisual();
-        InitButton();
+        InitVisual(data, levelIndex);
+        InitButton(data, levelIndex);
     }
 
-    private void InitVisual()
+    private void InitVisual(PlayerData data, int levelIndex)
     {
-        levelIDText.text = levelID.ToString();
+        levelIDText.text = levelIndex.ToString();
 
-        if (PlayerData.levelsDone.ContainsKey(levelID)) 
+        if (data.levelsDone.ContainsKey(levelIndex)) 
         {
-            bestTimeText.text = FormatTime(PlayerData.levelsDone[levelID].time);
+            bestTimeText.text = FormatTime(data.levelsDone[levelIndex].bestTime);
         }
     }
 
-    private void InitButton()
+    private void InitButton(PlayerData data, int levelIndex)
     {
-        if (levelID == 1)
+        if (levelIndex == 1)
         {
             button.interactable = true;
             button.onClick.AddListener(delegate { LevelController.Instance.LoadLevel(1); });
@@ -37,14 +35,10 @@ public class LevelSelectionButton : MonoBehaviour
             return;
         }
 
-        if (PlayerData.levelsDone.ContainsKey(levelID))
+        if (data.levelsDone.ContainsKey(levelIndex - 1))
         {
-            LevelData val;
-            if (PlayerData.levelsDone.TryGetValue(levelID - 1, out val))
-            {
-                button.interactable = val.isCompleted;
-                button.onClick.AddListener(delegate { LevelController.Instance.LoadLevel(levelID); });
-            }
+            button.interactable = data.levelsDone[levelIndex - 1].isCompleted;
+            button.onClick.AddListener(delegate { LevelController.Instance.LoadLevel(levelIndex); });
         }
     }
 

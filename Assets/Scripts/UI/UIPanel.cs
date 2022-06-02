@@ -1,17 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 
 public class UIPanel : MonoBehaviour
 {
     public UnityEvent OnBackEvent;
+    public UnityEvent OnEnableEvent;
 
-    public void OnBack()
+    private UIPanel prevActivePanel;
+
+    public virtual void ShowPanelDelayed(float delay)
     {
-        OnBackEvent?.Invoke();
+        Invoke("ShowPanel", delay);
+    }
+
+    public virtual void ShowPanel()
+    {
+        prevActivePanel = InputController.Instance.GetActivePanel();
+        InputController.Instance.SetActivePanel(this);
+        gameObject.SetActive(true);
+
+        OnEnableEvent?.Invoke();
+    }
+
+    public virtual void HidePanel()
+    {
+        InputController.Instance.SetActivePanel(prevActivePanel);
+        prevActivePanel = null;
+        gameObject.SetActive(false);
     }
 }

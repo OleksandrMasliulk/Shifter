@@ -104,7 +104,85 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 718256379}
+  eSystem: {fileID: 1606495774}
   initialMode: 0
+  activePanel: {fileID: 0}
+--- !u!1 &1606495772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1606495775}
+  - component: {fileID: 1606495774}
+  - component: {fileID: 1606495776}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1606495775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606495772}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -244.59998, y: -206.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 762294694752725410}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1606495774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606495772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &1606495776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606495772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: af5287c7ae3b32b41bad4b3bd6461fc5, type: 3}
+  m_PointAction: {fileID: 0}
+  m_MoveAction: {fileID: 4866485912855817742, guid: af5287c7ae3b32b41bad4b3bd6461fc5, type: 3}
+  m_SubmitAction: {fileID: 8310342180863235515, guid: af5287c7ae3b32b41bad4b3bd6461fc5, type: 3}
+  m_CancelAction: {fileID: 0}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!1 &364722824100781244
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,14 +518,13 @@ GameObject:
   - component: {fileID: 762294693504006902}
   - component: {fileID: 762294693504006903}
   - component: {fileID: 8388768985672314574}
-  - component: {fileID: 436004746}
   m_Layer: 5
   m_Name: WinPlanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &762294693504006888
 RectTransform:
   m_ObjectHideFlags: 0
@@ -524,7 +601,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527508a0335cd374e86cb9a1015fa54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showDelay: 1
+  OnBackEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 762294693504006903}
+        m_TargetAssemblyTypeName: WinPanel, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnEnableEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 718256381}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: SetSelectedObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 762294694009983080}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   timeLeftText: {fileID: 762294693939669703}
   bestTimeText: {fileID: 2371779555217050357}
   timeDelta: {fileID: 682042649582506194}
@@ -543,52 +649,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
---- !u!114 &436004746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762294693504006889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d7d23945bf6f474882da8020655bd30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnBack:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 762294693504006903}
-        m_TargetAssemblyTypeName: WinPanel, Assembly-CSharp
-        m_MethodName: MainMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnEnablePanel:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2112978387660071193}
-        m_TargetAssemblyTypeName: UIInputController, Assembly-CSharp
-        m_MethodName: SetActiveUIPanel
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 436004746}
-          m_ObjectArgumentAssemblyTypeName: UIPanel, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  interractibleElements:
-  - {fileID: 762294694009983093}
-  - {fileID: 762294693823857080}
-  - {fileID: 2654724330999116080}
 --- !u!1 &762294693519928453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1241,7 @@ RectTransform:
   - {fileID: 524362945590023164}
   - {fileID: 8256063718133071740}
   - {fileID: 718256380}
+  - {fileID: 1606495775}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2332,6 +2393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 762294693580185574}
+  winPanel: {fileID: 762294693504006903}
 --- !u!1 &8210274490948562886
 GameObject:
   m_ObjectHideFlags: 0

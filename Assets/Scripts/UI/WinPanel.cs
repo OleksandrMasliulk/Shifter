@@ -4,28 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class WinPanel : MonoBehaviour
+public class WinPanel : UIPanel
 {
-    [SerializeField] private float showDelay;
     [SerializeField] private Text timeLeftText;
     [SerializeField] private Text bestTimeText;
     [SerializeField] private Text timeDelta;
 
-    private void Start()
+    public override void ShowPanelDelayed(float delay)
     {
-        GameController.OnPlayerWin += ShowPanel;
-
-        gameObject.SetActive(false);
+        InitPanel();
+        base.ShowPanelDelayed(delay);
     }
-
     private void InitPanel()
     {
         timeLeftText.text = GameController.Instance.GetTimer().GetTimeAsString();
-        if (PlayerData.levelsDone.ContainsKey(SceneManager.GetActiveScene().buildIndex))
-        {
-            bestTimeText.text = FormatTime(PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex].time);
+        PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
 
-            float delta = GameController.Instance.GetTimer().GetTime() - PlayerData.levelsDone[SceneManager.GetActiveScene().buildIndex].time;
+        if (data.levelsDone.ContainsKey(SceneManager.GetActiveScene().buildIndex))
+        {
+            bestTimeText.text = FormatTime(data.GetLevelTime(SceneManager.GetActiveScene().buildIndex));
+
+            float delta = GameController.Instance.GetTimer().GetTime() - data.GetLevelTime(SceneManager.GetActiveScene().buildIndex);
             if (delta > 0)
             {
                 timeDelta.text = "+";
@@ -38,18 +37,6 @@ public class WinPanel : MonoBehaviour
             }
             timeDelta.text += ""+FormatTime(Mathf.Abs(delta));
         }
-    }
-
-    private void ShowPanel()
-    {
-        InitPanel();
-
-        Invoke("ShowPanelCoroutine", showDelay);
-    }
-
-    private void ShowPanelCoroutine()
-    {
-        gameObject.SetActive(true);
     }
 
     private string FormatTime(float time)
@@ -86,10 +73,5 @@ public class WinPanel : MonoBehaviour
 
         LevelController.Instance.LoadLevel(nextLevelID);
         Debug.Log("END");
-    }
-
-    private void OnDestroy()
-    {
-        GameController.OnPlayerWin -= ShowPanel;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class InputController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class InputController : MonoBehaviour
     public static InputController Instance { get; private set; }
 
     [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private EventSystem eSystem;
 
     private InputMapper inputMapper;
     [SerializeField] private InputMode initialMode;
@@ -35,15 +37,9 @@ public class InputController : MonoBehaviour
         SwitchInputMode(initialMode);
     }
 
-    private void Start()
-    {
-        
-        //playerInput.onControlsChanged += PlayerInput_onControlsChanged;
-    }
-
     private void OnBack()
     {
-        activePanel.OnBack();
+        activePanel.OnBackEvent?.Invoke();
     }
 
     public void SetActivePanel(UIPanel panel)
@@ -51,10 +47,14 @@ public class InputController : MonoBehaviour
         activePanel = panel;
     }
 
+    public UIPanel GetActivePanel()
+    {
+        return activePanel;
+    }
+
     private void OnControlsChanged()
     {
-        foreach (InputDevice device in playerInput.devices)
-            Debug.Log("New Device: " + device);
+        Debug.Log("New Device: " + playerInput.devices[0]);
     }
 
     public void SwitchInputMode(InputMode mode)
@@ -81,5 +81,10 @@ public class InputController : MonoBehaviour
     public InputMapper GetInputMapper()
     {
         return inputMapper;
+    }
+
+    public void SetSelectedObject(GameObject obj)
+    {
+        eSystem.SetSelectedGameObject(obj);
     }
 }
