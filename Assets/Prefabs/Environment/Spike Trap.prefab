@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 169954944737569632}
   - component: {fileID: 8603169901672379215}
   - component: {fileID: 3173880811323864597}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4121306605785171413}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spike Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7425122956532683931}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3309660599511752359}
   - component: {fileID: 1722707359979650646}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}

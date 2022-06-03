@@ -5,31 +5,36 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 { 
+    public static Timer Instance { get; private set; }
+
     public delegate void TimeIsOut();
     public static event TimeIsOut OnTimeIsOut;
 
     public Text indicator;
 
-    [SerializeField] private float timeRemaining;
+    private float timeRemaining;
     private bool isCounting;
 
-    private void Start()
+    private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void Init(float timeForLevel)
+    {
+        timeRemaining = timeForLevel;
+
         PlayerMovement.OnStartMoving += StartCountdown;
         GameController.OnPlayerWin += StopCountdown;
 
-        DisplayTimer(timeRemaining);
-    }
-
-    public void StartCountdown()
-    {
-        isCounting = true;
-        PlayerMovement.OnStartMoving -= StartCountdown;
-    }
-
-    public void StopCountdown()
-    {
-        isCounting = false;
+        UpdateTimer(timeRemaining);
     }
 
     private void Update()
@@ -48,8 +53,19 @@ public class Timer : MonoBehaviour
                 TimeRanOut();
             }
 
-            DisplayTimer(timeRemaining);
+            UpdateTimer(timeRemaining);
         }
+    }
+
+    public void StartCountdown()
+    {
+        isCounting = true;
+        PlayerMovement.OnStartMoving -= StartCountdown;
+    }
+
+    public void StopCountdown()
+    {
+        isCounting = false;
     }
 
     private void TimeRanOut()
@@ -58,23 +74,9 @@ public class Timer : MonoBehaviour
         OnTimeIsOut?.Invoke();
     }
 
-    private string FormatTime() 
+    private void UpdateTimer(float time)
     {
-        float minutes = Mathf.FloorToInt(timeRemaining / 60);
-        float seconds = Mathf.FloorToInt(timeRemaining % 60);
-        float milliSeconds = (timeRemaining % 1) * 1000;
-
-        return string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliSeconds);
-    }
-
-    private void DisplayTimer(float time)
-    {
-        indicator.text = FormatTime();
-    }
-
-    public string GetTimeAsString()
-    {
-        return FormatTime();
+        indicator.text = Utils.FloatToTime(time);
     }
 
     public float GetTime()

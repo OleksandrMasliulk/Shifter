@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     public delegate void PlayerWin();
     public static event PlayerWin OnPlayerWin;
 
-    [SerializeField] private Timer timer;
+    [SerializeField] private float timeForLevel;
     [SerializeField] private WinPanel winPanel;
 
     //[SerializeField] private CinemachineVirtualCamera cinemachineCam;
@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         PlayerController.OnPlayerDied += Lose;
+
+        Timer.Instance.Init(timeForLevel);
     }
 
     private void Lose()
@@ -52,11 +54,6 @@ public class GameController : MonoBehaviour
         OnPlayerWin?.Invoke();
     }
 
-    public Timer GetTimer()
-    {
-        return timer;
-    }
-
     private void HandleBestLevelTime() 
     {
         PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
@@ -65,18 +62,19 @@ public class GameController : MonoBehaviour
             data = new PlayerData();
         }
 
+        float time = Timer.Instance.GetTime();
         if (data.levelsDone.ContainsKey(SceneManager.GetActiveScene().buildIndex))
         {
             float bestTime = data.GetLevelTime(SceneManager.GetActiveScene().buildIndex);
-            if (bestTime < timer.GetTime())
+            if (bestTime < time)
             {
-                data.levelsDone[SceneManager.GetActiveScene().buildIndex] = new PlayerData.LevelData(true, timer.GetTime());
+                data.levelsDone[SceneManager.GetActiveScene().buildIndex] = new PlayerData.LevelData(true, time);
                 SaveLoad.Save(data, SaveLoad.levelsDataPath);
             }
         }
         else
         {
-            data.levelsDone.Add(SceneManager.GetActiveScene().buildIndex, new PlayerData.LevelData(true, timer.GetTime()));
+            data.levelsDone.Add(SceneManager.GetActiveScene().buildIndex, new PlayerData.LevelData(true, time));
             SaveLoad.Save(data, SaveLoad.levelsDataPath);
         }
 

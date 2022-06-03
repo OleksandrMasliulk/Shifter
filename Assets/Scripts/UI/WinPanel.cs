@@ -17,14 +17,18 @@ public class WinPanel : UIPanel
     }
     private void InitPanel()
     {
-        timeLeftText.text = GameController.Instance.GetTimer().GetTimeAsString();
-        PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
+        timeLeftText.text = Utils.FloatToTime(Timer.Instance.GetTime());
 
+        PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
+        if (data == null)
+        {
+            data = new PlayerData();
+        }
         if (data.levelsDone.ContainsKey(SceneManager.GetActiveScene().buildIndex))
         {
-            bestTimeText.text = FormatTime(data.GetLevelTime(SceneManager.GetActiveScene().buildIndex));
+            bestTimeText.text = Utils.FloatToTime(data.GetLevelTime(SceneManager.GetActiveScene().buildIndex));
 
-            float delta = GameController.Instance.GetTimer().GetTime() - data.GetLevelTime(SceneManager.GetActiveScene().buildIndex);
+            float delta = Timer.Instance.GetTime() - data.GetLevelTime(SceneManager.GetActiveScene().buildIndex);
             if (delta > 0)
             {
                 timeDelta.text = "+";
@@ -35,17 +39,8 @@ public class WinPanel : UIPanel
                 timeDelta.text = "-";
                 timeDelta.color = Color.red;
             }
-            timeDelta.text += ""+FormatTime(Mathf.Abs(delta));
+            timeDelta.text += "" + Utils.FloatToTime(Mathf.Abs(delta));
         }
-    }
-
-    private string FormatTime(float time)
-    {
-        float minutes = Mathf.FloorToInt(time / 60);
-        float seconds = Mathf.FloorToInt(time % 60);
-        float milliSeconds = (time % 1) * 1000;
-
-        return string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliSeconds);
     }
 
     public void Restart()
