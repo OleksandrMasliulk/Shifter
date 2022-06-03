@@ -74,7 +74,6 @@ GameObject:
   - component: {fileID: 937941844184779537}
   - component: {fileID: 1299904857385259659}
   - component: {fileID: 1924009005}
-  - component: {fileID: 338667818438813749}
   - component: {fileID: 5681485775318071903}
   - component: {fileID: 8085848041060854857}
   - component: {fileID: 9120571240575414175}
@@ -162,25 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd491afbdbebc5e4bb2cb8024d57df3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &338667818438813749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6853578283892702362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8a716f16345b8e46bfe46225b5e344c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAlive: 1
-  movementSpeed: 8
-  jumpForce: 17
-  wallSlideSpeed: -1.5
-  wallJumpAngle: 85
-  wallJumForce: 21
-  blinkDistance: 3
+  hud: {fileID: 0}
 --- !u!114 &5681485775318071903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78073bce55e5b44d8919784af1e5275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 8
+  jumpForce: 14
+  wallJumpAngle: 90
+  wallJumpForce: 21
+  wallSlideSpeed: -0.5
+  wallJumpControlImmunity: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -252,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59e53aed418aa741b708909751d17af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blinkDistance: 2
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 128

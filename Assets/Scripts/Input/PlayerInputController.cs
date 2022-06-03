@@ -60,8 +60,8 @@ public class PlayerInputController : MonoBehaviour
     private void Update()
     {
         Vector2 direction = new Vector2(InputController.Instance.GetInputMapper().Player.Movement.ReadValue<float>(), 0f);
-        if (direction.magnitude > 0f)
-            playerController.GetPlayerMovementController().Move(direction);
+        //if (direction.magnitude > 0f)
+        playerController.GetPlayerMovementController().Move(direction.normalized);
     }
 
     private void OnDisable()

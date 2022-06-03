@@ -12,6 +12,16 @@ public class PlayerMovement : MonoBehaviour, IMove
     private PlayerController playerController;
     private Rigidbody2D rb;
 
+    [Header("Movement")]
+    [SerializeField] private float movementSpeed;
+    private bool canMove = true;
+
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float wallJumpAngle;
+    [SerializeField] private float wallJumpForce;
+    [SerializeField] private float wallSlideSpeed;
+    [SerializeField] private float wallJumpControlImmunity;
+
     [Header("Grouund Check")]
     [SerializeField]private LayerMask groundLayer;
     [SerializeField]private Transform groundCheck;
@@ -35,40 +45,57 @@ public class PlayerMovement : MonoBehaviour, IMove
     {
         if (WallCheck())
         {
-            rb.velocity = new Vector2(0f, Mathf.Clamp(rb.velocity.y, playerController.GetPlayerParameters().a_wallSlideSpeed, float.MaxValue));
+            rb.velocity = new Vector2(0f, Mathf.Clamp(rb.velocity.y, wallSlideSpeed, float.MaxValue));
         }
     }
 
     public void Jump()
     {
         if (GroundCheck())
-            rb.velocity = new Vector2(rb.velocity.x, playerController.GetPlayerParameters().a_jumpForce);
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
 
         if (WallCheck())
         {
-            Vector2 direction = new Vector2(-playerController.GetPlayerGraphicsController().GetGraphicsScale().x, playerController.GetPlayerParameters().a_wallJumpAngle * Mathf.Deg2Rad).normalized;
+            Vector2 direction = new Vector2(-playerController.GetPlayerGraphicsController().GetGraphicsScale().x, wallJumpAngle * Mathf.Deg2Rad).normalized;
 
-            Debug.DrawLine(transform.position, transform.position + (Vector3)direction * playerController.GetPlayerParameters().a_jumpForce, Color.red, 5f);
-            rb.velocity = direction * playerController.GetPlayerParameters().a_wallJumpForce;
+            Debug.DrawLine(transform.position, transform.position + (Vector3)direction * jumpForce, Color.red, 5f);
+            rb.velocity = direction * wallJumpForce;
             playerController.GetPlayerGraphicsController().SwitchDirectionHorizontal();
+
+            StopCoroutine(ReclaimControl());
+            canMove = false;
+            StartCoroutine(ReclaimControl());
         }
+    }
+
+    IEnumerator ReclaimControl()
+    {
+        yield return new WaitForSeconds(wallJumpControlImmunity);
+        canMove = true;
     }
 
     public void Move(Vector2 direction)
     {
-        rb.velocity = new Vector2(0f, rb.velocity.y);
-        transform.Translate(direction * playerController.GetPlayerParameters().a_movementSpeed * Time.deltaTime);
-        //rb.velocity = new Vector2(direction.normalized.x * playerController.GetPlayerParameters().a_movementSpeed, rb.velocity.y);
+        if (direction.magnitude < .01f && !GroundCheck())
+            return;
 
-        if (direction.x > 0f)
+        if (canMove)
         {
-            playerController.GetPlayerGraphicsController().SetGraphicsHorizontal(true);
-        }
-        else if (direction.x < 0f)
-        {
-            playerController.GetPlayerGraphicsController().SetGraphicsHorizontal(false);
-        }
+            rb.velocity = new Vector2(movementSpeed * direction.x, rb.velocity.y);
+            //transform.Translate(direction * movementSpeed * Time.deltaTime);
+            //rb.velocity = new Vector2(direction.normalized.x * playerController.GetPlayerParameters().a_movementSpeed, rb.velocity.y);
 
+            if (direction.x > 0f)
+            {
+                playerController.GetPlayerGraphicsController().SetGraphicsHorizontal(true);
+            }
+            else if (direction.x < 0f)
+            {
+                playerController.GetPlayerGraphicsController().SetGraphicsHorizontal(false);
+            }
+        }
         OnStartMoving?.Invoke();
     }
 

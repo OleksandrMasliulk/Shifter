@@ -7,6 +7,8 @@ public class PlayerBlink : MonoBehaviour
 {
     private PlayerController playerController;
 
+    [SerializeField] private float blinkDistance;
+
     [SerializeField] private LayerMask obstacleLayer;
 
     private void Awake()
@@ -32,12 +34,12 @@ public class PlayerBlink : MonoBehaviour
 
     private Vector3 CalculateBlinkPosition(Vector3 direction)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, playerController.GetPlayerParameters().a_blinkDistance, obstacleLayer);
-        Debug.DrawLine(transform.position, transform.position + direction * playerController.GetPlayerParameters().a_blinkDistance, Color.red, 5f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, blinkDistance, obstacleLayer);
+        Debug.DrawLine(transform.position, transform.position + direction * blinkDistance, Color.red, 5f);
 
         if (hit.collider == null)
         {
-            return transform.position + direction * playerController.GetPlayerParameters().a_blinkDistance;
+            return transform.position + direction * blinkDistance;
         }
         else
         {

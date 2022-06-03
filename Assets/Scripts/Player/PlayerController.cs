@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerParameters))]
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance { get; private set; }
@@ -10,12 +9,13 @@ public class PlayerController : MonoBehaviour
     public delegate void PlayerDied();
     public static event PlayerDied OnPlayerDied;
 
-    private PlayerParameters parameters;
     private PlayerMovement movement;
     private PlayerBlink blinkHandler;
     private PlayerTimeBody timeBody;
     private PlayerGraphicsController graphics;
     [SerializeField] private PlayerHUD hud;
+
+    public bool isAlive { get; private set; }
 
     private void Awake()
     {
@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        parameters = GetComponent<PlayerParameters>();
+        isAlive = true;
+
         movement = GetComponent<PlayerMovement>();
         timeBody = GetComponent<PlayerTimeBody>();
         graphics = GetComponent<PlayerGraphicsController>();
@@ -42,16 +43,22 @@ public class PlayerController : MonoBehaviour
 
     private void SetUnactive()
     {
-        parameters.SetIsAlive(false);
+        SetIsAlive(false);
     }
 
     public void Die()
     {
         Debug.LogWarning("!!!Player's dread!!!");
-        parameters.SetIsAlive(false);
+        SetIsAlive(false);
 
         OnPlayerDied?.Invoke();
     }
+
+    public void SetIsAlive(bool isAlive)
+    {
+        this.isAlive = isAlive;
+    }
+
     public PlayerMovement GetPlayerMovementController()
     {
         return movement;
@@ -60,11 +67,6 @@ public class PlayerController : MonoBehaviour
     public PlayerGraphicsController GetPlayerGraphicsController()
     {
         return graphics;
-    }
-
-    public PlayerParameters GetPlayerParameters()
-    {
-        return parameters;
     }
 
     public PlayerTimeBody GetPlayerTimeBody()
