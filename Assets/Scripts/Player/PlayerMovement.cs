@@ -95,8 +95,10 @@ public class PlayerMovement : MonoBehaviour, IMove
             {
                 playerController.GetPlayerGraphicsController().SetGraphicsHorizontal(false);
             }
+
+            if (direction.magnitude > 0f)
+                OnStartMoving?.Invoke();
         }
-        OnStartMoving?.Invoke();
     }
 
     private bool GroundCheck()

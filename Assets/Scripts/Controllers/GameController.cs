@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
     {
         PlayerController.OnPlayerDied += Lose;
 
-        Timer.Instance.Init(timeForLevel);
+        TimerController.Instance.Init(timeForLevel);
     }
 
     private void Lose()
@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
             data = new PlayerData();
         }
 
-        float time = Timer.Instance.GetTime();
+        float time = TimerController.Instance.GetTime();
         if (data.levelsDone.ContainsKey(SceneManager.GetActiveScene().buildIndex))
         {
             float bestTime = data.GetLevelTime(SceneManager.GetActiveScene().buildIndex);

@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         graphics = GetComponent<PlayerGraphicsController>();
         blinkHandler = GetComponent<PlayerBlink>();
 
-        Timer.OnTimeIsOut += Die;
+        TimerController.OnTimeIsOut += Die;
     }
 
     private void SetUnactive()
@@ -86,6 +86,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        Timer.OnTimeIsOut -= Die;
+        TimerController.OnTimeIsOut -= Die;
     }
 }

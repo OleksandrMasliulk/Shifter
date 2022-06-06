@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour
+public class TimerController : MonoBehaviour
 { 
-    public static Timer Instance { get; private set; }
+    public static TimerController Instance { get; private set; }
 
     public delegate void TimeIsOut();
     public static event TimeIsOut OnTimeIsOut;

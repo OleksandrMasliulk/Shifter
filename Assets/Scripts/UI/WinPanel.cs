@@ -17,7 +17,7 @@ public class WinPanel : UIPanel
     }
     private void InitPanel()
     {
-        timeLeftText.text = Utils.FloatToTime(Timer.Instance.GetTime());
+        timeLeftText.text = Utils.FloatToTime(TimerController.Instance.GetTime());
 
         PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
         if (data == null)
@@ -28,7 +28,7 @@ public class WinPanel : UIPanel
         {
             bestTimeText.text = Utils.FloatToTime(data.GetLevelTime(SceneManager.GetActiveScene().buildIndex));
 
-            float delta = Timer.Instance.GetTime() - data.GetLevelTime(SceneManager.GetActiveScene().buildIndex);
+            float delta = TimerController.Instance.GetTime() - data.GetLevelTime(SceneManager.GetActiveScene().buildIndex);
             if (delta > 0)
             {
                 timeDelta.text = "+";
