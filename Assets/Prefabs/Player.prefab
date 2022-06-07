@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkDistance: 2
+  blinkCD: 2
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 128

@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using static PlayerData;
 
 public static class SaveLoad
 {
     public const string levelsDataPath = "/levelsData.bin";
-    public const string playerLoginData = "/loginData.bin";
+    public const string playerProfileDataPath = "/playerProfile.bin";
 
     public static void Save<T>(T dataToSave, string savePath)
     {

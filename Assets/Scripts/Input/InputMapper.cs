@@ -693,17 +693,6 @@ public partial class @InputMapper : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c7e34a5d-6345-429e-8209-4e1c6d8ed164"",
-                    ""path"": ""<Keyboard>/backspace"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Back"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""72766142-51bd-4328-861d-3d8f633d246d"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
