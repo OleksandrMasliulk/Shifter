@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerHUD : MonoBehaviour
 {
@@ -12,12 +11,12 @@ public class PlayerHUD : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        LevelController.Instance.RestartCurrentLevel();
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        LevelController.Instance.LoadMainMenu();
     }
 
     public void ShowHUD()

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 public class LevelSelectionMenu : UIPanel
@@ -19,7 +18,7 @@ public class LevelSelectionMenu : UIPanel
 
     private void Init()
     {
-        int levelsCount = SceneManager.sceneCountInBuildSettings;
+        int levelsCount = LevelController.levelsCount;
 
         PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
         if (data == null)
@@ -27,7 +26,7 @@ public class LevelSelectionMenu : UIPanel
             data = new PlayerData();
         }
 
-        for (int i = 1; i < levelsCount; i++)
+        for (int i = LevelController.scenesCountOffset; i < levelsCount; i++)
         {
             LevelSelectionButton button = Instantiate(selectButtonPrefab, buttonsParent).GetComponent<LevelSelectionButton>();
             button.Init(data, i);

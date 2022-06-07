@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static PlayerData;
+
 public class LevelSelectionButton : MonoBehaviour
 {
     [SerializeField] private Text levelIDText;
@@ -17,7 +17,7 @@ public class LevelSelectionButton : MonoBehaviour
 
     private void InitVisual(PlayerData data, int levelIndex)
     {
-        levelIDText.text = levelIndex.ToString();
+        levelIDText.text = (levelIndex - 1).ToString();
 
         if (data.levelsDone.ContainsKey(levelIndex)) 
         {
@@ -27,10 +27,10 @@ public class LevelSelectionButton : MonoBehaviour
 
     private void InitButton(PlayerData data, int levelIndex)
     {
-        if (levelIndex == 1)
+        if (levelIndex == LevelController.scenesCountOffset)
         {
             button.interactable = true;
-            button.onClick.AddListener(delegate { LevelController.Instance.LoadLevel(1); });
+            button.onClick.AddListener(delegate { LevelController.Instance.LoadLevel(LevelController.scenesCountOffset); });
 
             return;
         }

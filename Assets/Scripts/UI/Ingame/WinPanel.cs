@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class WinPanel : UIPanel
 {
@@ -24,11 +23,11 @@ public class WinPanel : UIPanel
         {
             data = new PlayerData();
         }
-        if (data.levelsDone.ContainsKey(SceneManager.GetActiveScene().buildIndex))
+        if (data.levelsDone.ContainsKey(LevelController.currentLevel))
         {
-            bestTimeText.text = Utils.FloatToTime(data.GetLevelTime(SceneManager.GetActiveScene().buildIndex));
+            bestTimeText.text = Utils.FloatToTime(data.GetLevelTime(LevelController.currentLevel));
 
-            float delta = TimerController.Instance.GetTime() - data.GetLevelTime(SceneManager.GetActiveScene().buildIndex);
+            float delta = TimerController.Instance.GetTime() - data.GetLevelTime(LevelController.currentLevel);
             if (delta > 0)
             {
                 timeDelta.text = "+";
@@ -45,21 +44,21 @@ public class WinPanel : UIPanel
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        LevelController.Instance.RestartCurrentLevel();
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        LevelController.Instance.LoadMainMenu();
     }
 
     public void NextLevel()
     {
         Debug.Log("START");
         int nextLevelID;
-        if (SceneManager.sceneCountInBuildSettings - 1 > SceneManager.GetActiveScene().buildIndex)
+        if (LevelController.levelsCount - 1 > LevelController.currentLevel)
         {
-            nextLevelID = SceneManager.GetActiveScene().buildIndex + 1;
+            nextLevelID = LevelController.currentLevel + 1;
         }
         else
         {
