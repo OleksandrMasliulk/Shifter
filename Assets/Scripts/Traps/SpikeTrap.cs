@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SpikeTrap : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerController player = collision.GetComponent<PlayerController>();
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
 
         if (player != null)
         {
