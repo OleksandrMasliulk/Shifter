@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d88c3405bb9974cbbd813cc9fda0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transitionHandler: {fileID: 0}
+  _loadingScreen: {fileID: 0}
+  _mainMenuLevel: {fileID: 11400000, guid: f1be40ba7d52f6f45aeb29a974f90a67, type: 2}
 --- !u!1 &4283059499749944808
 GameObject:
   m_ObjectHideFlags: 0

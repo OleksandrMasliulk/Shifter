@@ -1,61 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FakePlatform : MonoBehaviour
-{
-    [SerializeField] private GameObject fakeObj;
+public class FakePlatform : Trap {
+    [SerializeField] private GameObject _fakeObject;
+    [SerializeField] private float _timeBeforeBreak;
+    private bool _isPlayerOnIt = false;
+    private float _timeToBreak;
 
-    [SerializeField] private float timeBeforeBreak;
-    private bool isPlayerOnIt = false;
+    private void Awake() => Reset();
 
-    private float timeToBreak;
-
-    private void Start()
-    {
-        Reset();
-    }
-
-    private void Update()
-    {
-        if (timeToBreak <= 0f && isPlayerOnIt)
-        {
+    private void Update() {
+        if (_timeToBreak <= 0f && _isPlayerOnIt)
             Break();
-        }
-        else if (isPlayerOnIt)
-        {
-            timeToBreak -= Time.deltaTime;
-        }
+        else if (_isPlayerOnIt)
+            _timeToBreak -= Time.deltaTime;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        PlayerController player = collision.collider.GetComponent<PlayerController>();
-
-        if (player != null)
-        {
-            isPlayerOnIt = true;
-        }
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController player))
+            _isPlayerOnIt = true;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        PlayerController player = collision.collider.GetComponent<PlayerController>();
-
-        if (player != null)
-        {
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController player))
             Reset();
-        }
     }
 
-    private void Break()
-    {
-        Destroy(transform.parent.parent.gameObject);
-    }
+    private void Break() => Destroy(_fakeObject);
 
-    private void Reset()
-    {
-        isPlayerOnIt = false;
-        timeToBreak = timeBeforeBreak;
+    private void Reset() {
+        _isPlayerOnIt = false;
+        _timeToBreak = _timeBeforeBreak;
     }
 }

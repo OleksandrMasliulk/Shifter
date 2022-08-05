@@ -1,53 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.AddressableAssets;
 
-public class LevelSelectionButton : MonoBehaviour
-{
-    [SerializeField] private Text levelIDText;
-    [SerializeField] private Text bestTimeText;
-    [SerializeField] private Button button;
+public class LevelSelectionButton : MonoBehaviour {
+    [SerializeField] private TMP_Text _levelIndexText;
+    [SerializeField] private TMP_Text _bestTimeText;
+    [SerializeField] private Button _button;
 
-    public void Init(PlayerData data, int levelIndex)
-    {
-        InitVisual(data, levelIndex);
-        InitButton(data, levelIndex);
+    [SerializeField] private AssetReference _level;
+
+    private void Awake() {
+        PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
+        if (data == null)
+            data = new PlayerData();
+        var op = _level.LoadAssetAsync<LevelSO>();
+        op.Completed += (op) => {
+            InitVisual(data, op.Result);
+            InitButton(op.Result);
+        };
     }
 
-    private void InitVisual(PlayerData data, int levelIndex)
-    {
-        levelIDText.text = (levelIndex - 1).ToString();
+    private void InitVisual(PlayerData data, LevelSO levelData) {
+        _levelIndexText.text = (levelData.Index).ToString();
 
-        if (data.levelsDone.ContainsKey(levelIndex)) 
-        {
-            bestTimeText.text = FormatTime(data.levelsDone[levelIndex].bestTime);
-        }
+        if (data.LevelsProgression.ContainsKey(levelData.Index)) 
+            _bestTimeText.text = Utils.FloatToTime(data.LevelsProgression[levelData.Index].bestTime);
     }
 
-    private void InitButton(PlayerData data, int levelIndex)
-    {
-        if (levelIndex == LevelController.scenesCountOffset)
-        {
-            button.interactable = true;
-            button.onClick.AddListener(delegate { LevelController.Instance.LoadLevel(LevelController.scenesCountOffset); });
-
-            return;
-        }
-
-        if (data.levelsDone.ContainsKey(levelIndex - 1))
-        {
-            button.interactable = data.levelsDone[levelIndex - 1].isCompleted;
-            button.onClick.AddListener(delegate { LevelController.Instance.LoadLevel(levelIndex); });
-        }
-    }
-
-    private string FormatTime(float time)
-    {
-        float minutes = Mathf.FloorToInt(time / 60);
-        float seconds = Mathf.FloorToInt(time % 60);
-        float milliSeconds = (time % 1) * 1000;
-
-        return string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliSeconds);
+    private async void InitButton(LevelSO levelData) {
+        bool isUnlocked = await levelData.CheckIfUnlocked();
+        if (isUnlocked)
+            _button.interactable = true;
+        else
+            _button.interactable = false;
     }
 }

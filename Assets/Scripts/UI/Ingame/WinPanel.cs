@@ -1,71 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
-public class WinPanel : UIPanel
-{
-    [SerializeField] private Text timeLeftText;
-    [SerializeField] private Text bestTimeText;
-    [SerializeField] private Text timeDelta;
+public class WinPanel : UIPanel {
+    [SerializeField] private TMP_Text _timeLeftText;
+    [SerializeField] private TMP_Text _bestTimeText;
+    [SerializeField] private TMP_Text _timeDifference;
 
-    public override void ShowPanelDelayed(float delay)
-    {
+    public override void ShowPanelDelayed(float delay) {
         InitPanel();
         base.ShowPanelDelayed(delay);
     }
-    private void InitPanel()
-    {
-        timeLeftText.text = Utils.FloatToTime(TimerController.Instance.GetTime());
+
+    private void InitPanel() {
+        _timeLeftText.text = Utils.FloatToTime(TimerController.Instance.TimeLeft);
 
         PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
         if (data == null)
-        {
             data = new PlayerData();
-        }
-        if (data.levelsDone.ContainsKey(LevelController.currentLevel))
+        if (data.LevelsProgression.ContainsKey(LevelLoader.Instance.CurrentLevel.Index))
         {
-            bestTimeText.text = Utils.FloatToTime(data.GetLevelTime(LevelController.currentLevel));
+            _bestTimeText.text = Utils.FloatToTime(data.GetLevelTime(LevelLoader.Instance.CurrentLevel.Index));
 
-            float delta = TimerController.Instance.GetTime() - data.GetLevelTime(LevelController.currentLevel);
-            if (delta > 0)
-            {
-                timeDelta.text = "+";
-                timeDelta.color = Color.green;
+            float delta = TimerController.Instance.TimeLeft - data.GetLevelTime(LevelLoader.Instance.CurrentLevel.Index);
+            if (delta > 0) {
+                _timeDifference.text = "+";
+                _timeDifference.color = Color.green;
             }
-            else
-            {
-                timeDelta.text = "-";
-                timeDelta.color = Color.red;
+            else {
+                _timeDifference.text = "-";
+                _timeDifference.color = Color.red;
             }
-            timeDelta.text += "" + Utils.FloatToTime(Mathf.Abs(delta));
+            _timeDifference.text += "" + Utils.FloatToTime(Mathf.Abs(delta));
         }
     }
 
-    public void Restart()
-    {
-        LevelController.Instance.RestartCurrentLevel();
-    }
+    public void Restart() => LevelLoader.Instance.RestartCurrentLevel();
 
-    public void MainMenu()
-    {
-        LevelController.Instance.LoadMainMenu();
-    }
-
-    public void NextLevel()
-    {
-        Debug.Log("START");
-        int nextLevelID;
-        if (LevelController.levelsCount - 1 > LevelController.currentLevel)
-        {
-            nextLevelID = LevelController.currentLevel + 1;
-        }
-        else
-        {
-            return;
-        }
-
-        LevelController.Instance.LoadLevel(nextLevelID);
-        Debug.Log("END");
-    }
+    public void MainMenu() => LevelLoader.Instance.LoadMainMenu();
 }

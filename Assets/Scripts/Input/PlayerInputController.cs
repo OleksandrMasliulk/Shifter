@@ -29,39 +29,39 @@ public class PlayerInputController : MonoBehaviour
 
     private void MainMenu_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        playerController.GetPlayerHUD().MainMenu();
+        playerController.HUDController.MainMenu();
     }
 
     private void Restart_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        playerController.GetPlayerHUD().Restart();
+        playerController.HUDController.Restart();
     }
 
     private void BlinkRight_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        playerController.GetPlayerBlinkHandler().BlinkRight();
+        playerController.BlinkController.BlinkRight();
     }
 
     private void BlinkLeft_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        playerController.GetPlayerBlinkHandler().BlinkLeft();
+        playerController.BlinkController.BlinkLeft();
     }
 
     private void Blink_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        playerController.GetPlayerBlinkHandler().Blink();
+        playerController.BlinkController.Blink();
     }
 
     private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        playerController.GetPlayerMovementController().Jump();
+        playerController.MovementController.Jump();
     }
 
     private void Update()
     {
         Vector2 direction = new Vector2(InputController.Instance.GetInputMapper().Player.Movement.ReadValue<float>(), 0f);
         //if (direction.magnitude > 0f)
-        playerController.GetPlayerMovementController().Move(direction.normalized);
+        playerController.MovementController.Move(direction.normalized);
     }
 
     private void OnDisable()

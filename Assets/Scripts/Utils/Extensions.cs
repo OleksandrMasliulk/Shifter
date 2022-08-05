@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 public static class Extensions
 {
-    public static async Task AnimationAsTask(this Animation anim, string animationName) 
+    public static async Task AnimationAsTask(this Animation anim, string animName) 
     {
-        anim.Play(animationName);
-        float animDuration = anim.GetClip(animationName).length;
+        anim.Play(animName);
+        float animDuration = anim.GetClip(animName).length;
 
-        await Task.Delay((int)animDuration * 1000);    }
+        await Task.Delay((int)animDuration * 1000);    
+    }
 }

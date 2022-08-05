@@ -1,41 +1,29 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerData
-{
-    public Dictionary<int, LevelData> levelsDone;
+public class PlayerData {
+    public Dictionary<int, LevelData> LevelsProgression {get; set;}
 
-    public PlayerData()
-    {
-        levelsDone = new Dictionary<int, LevelData>();
-    }
+    public PlayerData() => LevelsProgression = new Dictionary<int, LevelData>();
 
-    public float GetLevelTime(int levelIndex)
-    {
+    public float GetLevelTime(int level) {
         float levelTime = -1;
 
-        if (levelsDone.ContainsKey(levelIndex))
-        {
-            levelTime = levelsDone[levelIndex].bestTime;
-        }
+        if (LevelsProgression.ContainsKey(level))
+            levelTime = LevelsProgression[level].bestTime;
         else
-        {
             Debug.Log("No data found");
-        }
 
         return levelTime;
     }
 
     [System.Serializable]
-    public struct LevelData
-    {
+    public struct LevelData {
         public bool isCompleted;
         public float bestTime;
 
-        public LevelData(bool _isCompleted, float _time)
-        {
+        public LevelData(bool _isCompleted, float _time) {
             isCompleted = _isCompleted;
             bestTime = _time;
         }

@@ -1,36 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHUD : MonoBehaviour
-{
-    private void Start()
-    {
-        GameController.OnPlayerWin += HideHUD;
-    }
+public class PlayerHUDController : MonoBehaviour {
+    private void OnEnable() => GameController.Instance.OnPlayerWin += HideHUD;
 
-    public void Restart()
-    {
-        LevelController.Instance.RestartCurrentLevel();
-    }
+    public void Restart() => LevelLoader.Instance.RestartCurrentLevel();
 
-    public void MainMenu()
-    {
-        LevelController.Instance.LoadMainMenu();
-    }
+    public void MainMenu() => LevelLoader.Instance.LoadMainMenu();
 
-    public void ShowHUD()
-    {
-        gameObject.SetActive(true);
-    }
+    public void ShowHUD() => gameObject.SetActive(true);
 
-    public void HideHUD()
-    {
-        gameObject.SetActive(false);
-    }
+    public void HideHUD() => gameObject.SetActive(false);
 
-    private void OnDisable()
-    {
-        GameController.OnPlayerWin -= HideHUD;
-    }
+    private void OnDisable() => GameController.Instance.OnPlayerWin -= HideHUD;
 }

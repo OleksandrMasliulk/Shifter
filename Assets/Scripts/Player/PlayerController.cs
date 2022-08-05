@@ -1,91 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController Instance { get; private set; }
+    public static event Action OnPlayerDied;
 
-    public delegate void PlayerDied();
-    public static event PlayerDied OnPlayerDied;
+    private PlayerMovementController _movementController;
+    public PlayerMovementController MovementController => _movementController;
+    private PlayerBlinkController _blinkController;
+    public PlayerBlinkController BlinkController => _blinkController;
+    private PlayerTimeBody _timeBody;
+    public PlayerTimeBody TimeBody => _timeBody;
+    private PlayerAnimationController _animationController;
+    public PlayerAnimationController AnimationController => _animationController;
+    [SerializeField] private PlayerHUDController _hudController;
+    public PlayerHUDController HUDController => _hudController;
 
-    private PlayerMovement movement;
-    private PlayerBlink blinkHandler;
-    private PlayerTimeBody timeBody;
-    private PlayerGraphicsController graphics;
-    [SerializeField] private PlayerHUD hud;
+    public bool IsAlive { get; private set; }
 
-    public bool isAlive { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+    private void Awake() {
+        _movementController = GetComponent<PlayerMovementController>();
+        _timeBody = GetComponent<PlayerTimeBody>();
+        _animationController = GetComponent<PlayerAnimationController>();
+        _blinkController = GetComponent<PlayerBlinkController>();
+        IsAlive = true;
     }
 
-    private void Start()
-    {
-        isAlive = true;
-
-        movement = GetComponent<PlayerMovement>();
-        timeBody = GetComponent<PlayerTimeBody>();
-        graphics = GetComponent<PlayerGraphicsController>();
-        blinkHandler = GetComponent<PlayerBlink>();
-
-        TimerController.OnTimeIsOut += Die;
+    private void OnEnable() {
+        TimerController.Instance.OnTimeIsOut += Die;
     }
 
-    private void SetUnactive()
-    {
-        SetIsAlive(false);
-    }
-
-    public void Die()
-    {
-        Debug.LogWarning("!!!Player's dread!!!");
-        SetIsAlive(false);
-
+    public void Die() {
+        Debug.LogWarning("!!!Player's dead!!!");
+    
+        IsAlive = false;
         OnPlayerDied?.Invoke();
     }
 
-    public void SetIsAlive(bool isAlive)
-    {
-        this.isAlive = isAlive;
-    }
-
-    public PlayerMovement GetPlayerMovementController()
-    {
-        return movement;
-    }
-
-    public PlayerGraphicsController GetPlayerGraphicsController()
-    {
-        return graphics;
-    }
-
-    public PlayerTimeBody GetPlayerTimeBody()
-    {
-        return timeBody;
-    }
-
-    public PlayerBlink GetPlayerBlinkHandler()
-    {
-        return blinkHandler;
-    }
-
-    public PlayerHUD GetPlayerHUD()
-    {
-        return hud;
-    }
-
-    private void OnDisable()
-    {
-        TimerController.OnTimeIsOut -= Die;
-    }
+    private void OnDisable() => TimerController.Instance.OnTimeIsOut -= Die;
 }

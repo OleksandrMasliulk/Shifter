@@ -1,91 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using TMPro;
 
-public class TimerController : MonoBehaviour
-{ 
+public class TimerController : MonoBehaviour { 
     public static TimerController Instance { get; private set; }
 
-    public delegate void TimeIsOut();
-    public static event TimeIsOut OnTimeIsOut;
+    public event Action OnTimeIsOut;
 
-    public Text indicator;
+    [SerializeField] private TMP_Text _indicatorText;
 
-    private float timeRemaining;
-    private bool isCounting;
+    [SerializeField] private float _levelTime;
+    private float _timeLeft;
+    public float TimeLeft => _timeLeft;
+    private bool _isCounting;
 
-    private void Awake()
-    {
+    private void Awake() {
         if (Instance == null)
-        {
             Instance = this;
-        }
         else
-        {
             Destroy(this.gameObject);
-        }
     }
 
-    public void Init(float timeForLevel)
-    {
-        timeRemaining = timeForLevel;
+    private void OnEnable() {
+        PlayerMovementController.OnStartMoving += StartCountdown;
+        GameController.Instance.OnPlayerWin += StopCountdown;
+    }
 
-        PlayerMovement.OnStartMoving += StartCountdown;
-        GameController.OnPlayerWin += StopCountdown;
-
-        UpdateTimer(timeRemaining);
+    public void Init() {
+        _timeLeft = _levelTime;
+        UpdateTimer(_timeLeft);
     }
 
     private void Update()
     {
-        if (isCounting)
-        {
-            if (timeRemaining > 0)
-            {
-                timeRemaining -= Time.deltaTime;
-            }
-            else
-            {
-                timeRemaining = 0f;
-                isCounting = false;
-
+        if (_isCounting) {
+            if (_timeLeft > 0)
+                _timeLeft -= Time.deltaTime;
+            else {
+                _timeLeft = 0f;
+                _isCounting = false;
                 TimeRanOut();
             }
-
-            UpdateTimer(timeRemaining);
+            UpdateTimer(_timeLeft);
         }
     }
 
-    public void StartCountdown()
-    {
-        isCounting = true;
-        PlayerMovement.OnStartMoving -= StartCountdown;
+    public void StartCountdown() {
+        _isCounting = true;
+        PlayerMovementController.OnStartMoving -= StartCountdown;
     }
 
-    public void StopCountdown()
-    {
-        isCounting = false;
-    }
+    public void StopCountdown() => _isCounting = false;
 
-    private void TimeRanOut()
-    {
+    private void TimeRanOut() {
         Debug.LogWarning("!!! TIME IS OUT !!!");
         OnTimeIsOut?.Invoke();
     }
 
-    private void UpdateTimer(float time)
-    {
-        indicator.text = Utils.FloatToTime(time);
-    }
+    private void UpdateTimer(float time) => _indicatorText.text = Utils.FloatToTime(time);
 
-    public float GetTime()
-    {
-        return timeRemaining;
-    }
-
-    private void OnDisable()
-    {
-        GameController.OnPlayerWin -= StopCountdown;
-    }
+    private void OnDisable() => GameController.Instance.OnPlayerWin -= StopCountdown;
 }

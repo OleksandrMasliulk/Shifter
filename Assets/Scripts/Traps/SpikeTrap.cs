@@ -1,16 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeTrap : MonoBehaviour
-{
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-
-        if (player != null)
-        {
+public class SpikeTrap : Trap {
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController player))
             player.Die();
-        }
     }
 }
