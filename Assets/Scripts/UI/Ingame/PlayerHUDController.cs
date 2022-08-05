@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class PlayerHUDController : MonoBehaviour {
-    private void OnEnable() => GameController.Instance.OnPlayerWin += HideHUD;
 
     public void Restart() => LevelLoader.Instance.RestartCurrentLevel();
 
@@ -11,5 +10,7 @@ public class PlayerHUDController : MonoBehaviour {
 
     public void HideHUD() => gameObject.SetActive(false);
 
+    private void OnEnable() => GameController.Instance.OnPlayerWin += HideHUD;
+    
     private void OnDisable() => GameController.Instance.OnPlayerWin -= HideHUD;
 }

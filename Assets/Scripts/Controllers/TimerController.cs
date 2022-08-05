@@ -9,7 +9,6 @@ public class TimerController : MonoBehaviour {
     public event Action OnTimeIsOut;
 
     [SerializeField] private TMP_Text _indicatorText;
-
     [SerializeField] private float _levelTime;
     private float _timeLeft;
     public float TimeLeft => _timeLeft;
@@ -23,7 +22,7 @@ public class TimerController : MonoBehaviour {
     }
 
     private void OnEnable() {
-        PlayerMovementController.OnStartMoving += StartCountdown;
+        //PlayerMovementController.OnStartMoving += StartCountdown;
         GameController.Instance.OnPlayerWin += StopCountdown;
     }
 
@@ -32,8 +31,7 @@ public class TimerController : MonoBehaviour {
         UpdateTimer(_timeLeft);
     }
 
-    private void Update()
-    {
+    private void Update() {
         if (_isCounting) {
             if (_timeLeft > 0)
                 _timeLeft -= Time.deltaTime;
@@ -48,7 +46,7 @@ public class TimerController : MonoBehaviour {
 
     public void StartCountdown() {
         _isCounting = true;
-        PlayerMovementController.OnStartMoving -= StartCountdown;
+        //PlayerMovementController.OnStartMoving -= StartCountdown;
     }
 
     public void StopCountdown() => _isCounting = false;
