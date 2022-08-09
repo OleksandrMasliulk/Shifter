@@ -2,8 +2,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
 public class PlayerBlinkController : MonoBehaviour {
-    private PlayerController _palyer;
-
     [SerializeField] private float _blinkDistance;
     [SerializeField] private float _blinkCooldown;
     [SerializeField] private LayerMask _obstacleLayer;
@@ -11,7 +9,6 @@ public class PlayerBlinkController : MonoBehaviour {
     private float _timeToCD;
 
     private void Awake() {
-        _palyer = GetComponent<PlayerController>();
         _canBlink = true;
         _timeToCD = 0f;
     }

@@ -1,18 +1,21 @@
 using UnityEngine;
 using TMPro;
+using Zenject;
 
-public class WinPanel : UIPanel {
+public class WinPanel : MonoBehaviour {
     [SerializeField] private TMP_Text _timeLeftText;
     [SerializeField] private TMP_Text _bestTimeText;
     [SerializeField] private TMP_Text _timeDifference;
 
-    public override void ShowPanelDelayed(float delay) {
-        InitPanel();
-        base.ShowPanelDelayed(delay);
+    private TimerController _timeController;
+
+    [Inject]
+    public void Construct(TimerController timeController) {
+        _timeController = timeController;
     }
 
     private void InitPanel() {
-        _timeLeftText.text = Utils.FloatToTime(TimerController.Instance.TimeLeft);
+        _timeLeftText.text = Utils.FloatToTime(_timeController.TimeLeft);
 
         PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
         if (data == null)
@@ -21,7 +24,7 @@ public class WinPanel : UIPanel {
         {
             _bestTimeText.text = Utils.FloatToTime(data.GetLevelTime(LevelLoader.Instance.CurrentLevel.Index));
 
-            float delta = TimerController.Instance.TimeLeft - data.GetLevelTime(LevelLoader.Instance.CurrentLevel.Index);
+            float delta = _timeController.TimeLeft - data.GetLevelTime(LevelLoader.Instance.CurrentLevel.Index);
             if (delta > 0) {
                 _timeDifference.text = "+";
                 _timeDifference.color = Color.green;
@@ -35,6 +38,6 @@ public class WinPanel : UIPanel {
     }
 
     public void Restart() => LevelLoader.Instance.RestartCurrentLevel();
-
+    
     public void MainMenu() => LevelLoader.Instance.LoadMainMenu();
 }

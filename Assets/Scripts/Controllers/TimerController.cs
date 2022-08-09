@@ -1,34 +1,25 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System;
-using TMPro;
+using Zenject;
 
 public class TimerController : MonoBehaviour { 
-    public static TimerController Instance { get; private set; }
-
     public event Action OnTimeIsOut;
 
-    [SerializeField] private TMP_Text _indicatorText;
-    [SerializeField] private float _levelTime;
+    private PlayerMovementController _playerMovement;
+    private float _levelTime;
+
     private float _timeLeft;
     public float TimeLeft => _timeLeft;
     private bool _isCounting;
 
-    private void Awake() {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(this.gameObject);
+    [Inject]
+    public void Construct(PlayerMovementController playerMovement, float time) {   
+        _playerMovement = playerMovement;
+        _levelTime = time;
     }
 
-    private void OnEnable() {
-        //PlayerMovementController.OnStartMoving += StartCountdown;
-        GameController.Instance.OnPlayerWin += StopCountdown;
-    }
-
-    public void Init() {
+    private void Start() {
         _timeLeft = _levelTime;
-        UpdateTimer(_timeLeft);
     }
 
     private void Update() {
@@ -40,14 +31,10 @@ public class TimerController : MonoBehaviour {
                 _isCounting = false;
                 TimeRanOut();
             }
-            UpdateTimer(_timeLeft);
         }
     }
 
-    public void StartCountdown() {
-        _isCounting = true;
-        //PlayerMovementController.OnStartMoving -= StartCountdown;
-    }
+    public void StartCountdown() => _isCounting = true;
 
     public void StopCountdown() => _isCounting = false;
 
@@ -56,7 +43,16 @@ public class TimerController : MonoBehaviour {
         OnTimeIsOut?.Invoke();
     }
 
-    private void UpdateTimer(float time) => _indicatorText.text = Utils.FloatToTime(time);
+    private void OnEnable() {
+        _playerMovement.OnMove += OnPlayerStartedMove;
+    }
 
-    private void OnDisable() => GameController.Instance.OnPlayerWin -= StopCountdown;
+    private void OnPlayerStartedMove(Vector2 dir) {
+        StartCountdown();
+        _playerMovement.OnMove -= OnPlayerStartedMove;
+    }
+
+    private void OnDisable() {
+        _playerMovement.OnMove -= OnPlayerStartedMove;
+    }
 }

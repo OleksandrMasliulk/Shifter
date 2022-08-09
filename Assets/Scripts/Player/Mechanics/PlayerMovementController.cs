@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 public class PlayerMovementController : MonoBehaviour, IMove {
     public event Action<Vector2> OnMove;
 
-    private PlayerController _palyer;
     private Rigidbody2D _rigidbody;
 
     [Header("Movement")]
@@ -28,7 +27,6 @@ public class PlayerMovementController : MonoBehaviour, IMove {
     public Vector2 LastDirection => _lastDirection;
 
     private void Awake() {
-        _palyer = GetComponent < PlayerController>();
         _rigidbody = GetComponent<Rigidbody2D>();
     } 
 

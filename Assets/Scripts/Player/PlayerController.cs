@@ -1,36 +1,25 @@
 using UnityEngine;
 using System;
+using Zenject;
 
 public class PlayerController : MonoBehaviour
 {
     public static event Action OnPlayerDied;
 
-    [SerializeField] private PlayerMovementController _movementController;
-    public PlayerMovementController MovementController => _movementController;
-    [SerializeField] private PlayerBlinkController _blinkController;
-    public PlayerBlinkController BlinkController => _blinkController;
-    [SerializeField] private PlayerTimeBody _timeBody;
-    public PlayerTimeBody TimeBody => _timeBody;
-    [SerializeField] private PlayerAnimationController _animationController;
-    public PlayerAnimationController AnimationController => _animationController;
-    [SerializeField] private PlayerHUDController _hudController;
-    public PlayerHUDController HUDController => _hudController;
+    private TimerController _timeController;
 
-    public bool IsAlive { get; private set; }
-
-    private void Awake() {
-        IsAlive = true;
+    [Inject]
+    public void Construct(TimerController timeController) {
+        _timeController = timeController;
     }
-
 
     public void Die() {
         Debug.LogWarning("!!!Player's dead!!!");
     
-        IsAlive = false;
         OnPlayerDied?.Invoke();
     }
 
-    private void OnEnable() => TimerController.Instance.OnTimeIsOut += Die;
+    private void OnEnable() => _timeController.OnTimeIsOut += Die;
 
-    private void OnDisable() => TimerController.Instance.OnTimeIsOut -= Die;
+    private void OnDisable() => _timeController.OnTimeIsOut -= Die;
 }

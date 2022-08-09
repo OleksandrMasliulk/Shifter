@@ -10,7 +10,7 @@ public class Stabilizer : MonoBehaviour
 
         if (player != null)
         {
-            GameController.Instance.Win();
+           // GameController.Instance.Win();
         }
     }
 }

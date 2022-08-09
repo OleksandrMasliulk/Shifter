@@ -5,14 +5,14 @@ public class RewindTrap : Trap {
     [SerializeField] private SpriteRenderer _renderer;
 
     private void OnCollisionStay2D(Collision2D collision) {
-        if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController player))
+        if (collision.gameObject.TryGetComponent<PlayerTimeBody>(out PlayerTimeBody player))
             Trigger(player);
     }
 
-    private void Trigger(PlayerController target) {
+    private void Trigger(PlayerTimeBody target) {
         float rewindTime = Time.fixedTime - _timeRewindValue;
-        if (target.TimeBody.GetPointInTime(rewindTime) != Vector3.zero) {
-            target.transform.position = target.TimeBody.GetPointInTime(rewindTime);
+        if (target.GetPointInTime(rewindTime) != Vector3.zero) {
+            target.transform.position = target.GetPointInTime(rewindTime);
             Deactivate();
         }
         else

@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7cf4e7919441a947bcbfe929e32bf74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1924009005}
   _moveSpeed: 5
   _jumpForce: 5
   _walljumpAngle: 80
@@ -247,6 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 7419670706405125219}
+  _player: {fileID: 1924009005}
 --- !u!114 &4754451034117165611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1e389e791f5ca4e92f38e924f16ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1924009005}
   _blinkDistance: 3
   _blinkCooldown: 3
   _obstacleLayer:

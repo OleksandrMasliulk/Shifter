@@ -1,33 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine;
 
-public class UIPanel : MonoBehaviour
+public class UIPanel : UIElement
 {
-    public UnityEvent OnBackEvent;
-    public UnityEvent OnEnableEvent;
+    public UnityEvent OnEnable;
+    public UnityEvent OnDisable;
 
-    private UIPanel prevActivePanel;
+    [SerializeField] private UIElement _firstSelected;
+    public UIElement FirstSelected => _firstSelected;
 
-    public virtual void ShowPanelDelayed(float delay)
-    {
+    public void ShowPanelDelayed(float delay) {
         Invoke("ShowPanel", delay);
     }
 
-    public virtual void ShowPanel()
-    {
-        prevActivePanel = InputController.Instance.GetActivePanel();
-        InputController.Instance.SetActivePanel(this);
+    public void ShowPanel() {
         gameObject.SetActive(true);
-
-        OnEnableEvent?.Invoke();
+        OnEnable?.Invoke();
     }
 
-    public virtual void HidePanel()
-    {
-        InputController.Instance.SetActivePanel(prevActivePanel);
-        prevActivePanel = null;
-        gameObject.SetActive(false);
+    public void HidePanel() {
+        OnDisable?.Invoke();
     }
 }
