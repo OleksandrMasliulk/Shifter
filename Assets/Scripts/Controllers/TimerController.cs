@@ -47,7 +47,7 @@ public class TimerController : MonoBehaviour {
         _playerMovement.OnMove += OnPlayerStartedMove;
     }
 
-    private void OnPlayerStartedMove(Vector2 dir) {
+    private void OnPlayerStartedMove(Vector2 dir, bool isGrounded) {
         StartCountdown();
         _playerMovement.OnMove -= OnPlayerStartedMove;
     }

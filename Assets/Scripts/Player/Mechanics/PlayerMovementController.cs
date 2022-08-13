@@ -4,7 +4,10 @@ using System.Threading.Tasks;
 
 [RequireComponent(typeof(PlayerController), typeof(Rigidbody2D))]
 public class PlayerMovementController : MonoBehaviour, IMove {
-    public event Action<Vector2> OnMove;
+    public event Action<Vector2, bool> OnMove;
+    public event Action OnStopMove;
+    public event Action OnJump;
+    public event Action OnWallJump;
 
     private Rigidbody2D _rigidbody;
 
@@ -21,7 +24,9 @@ public class PlayerMovementController : MonoBehaviour, IMove {
 
     [Header("Collision check")]
     [SerializeField] private LayerChecker _groundCheck;
+    public bool OnGround => _groundCheck.IsColliding;
     [SerializeField] private LayerChecker _wallCheck;
+    public bool OnWall => _wallCheck.IsColliding;
 
     private Vector2 _lastDirection;
     public Vector2 LastDirection => _lastDirection;
@@ -31,29 +36,30 @@ public class PlayerMovementController : MonoBehaviour, IMove {
     } 
 
     private void Update() {
-        if (_wallCheck.IsColliding)
+        if (OnWall && _canMove)
             _rigidbody.velocity = new Vector2(0f, Mathf.Clamp(_rigidbody.velocity.y, _wallslideSpeed, float.MaxValue));
     }
 
     public void Jump() {
-        if (_groundCheck.IsColliding) {
+        if (OnGround) {
             GroundJump();
             return;
         }
 
-        if (_wallCheck.IsColliding)
+        if (OnWall)
             WallJump();
     }
 
     private void GroundJump() {
         _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jumpForce);
-        //Invoke jump event
+        OnJump?.Invoke();
     }
 
     private async void WallJump() {
         Vector2 direction = new Vector2(-_lastDirection.x, _walljumpAngle * Mathf.Deg2Rad).normalized;
+        Debug.DrawLine(transform.position, transform.position + (Vector3)direction, Color.red, 5f);
         _rigidbody.velocity = direction * _walljumpForce;
-        //Invoke walljump event
+        OnWallJump?.Invoke();
         await WallJumpRecovery();
     }
 
@@ -64,14 +70,13 @@ public class PlayerMovementController : MonoBehaviour, IMove {
     }
 
     public void Move(Vector2 direction) {
-        if (direction.magnitude < .01f && _groundCheck.IsColliding)
+        if (direction.magnitude < .01f || !_canMove) {
+            OnStopMove?.Invoke();
             return;
-
-        if (_canMove) {
-            _rigidbody.velocity = new Vector2(_moveSpeed * direction.x, _rigidbody.velocity.y);
-            _lastDirection = direction;
-            if (direction.magnitude > 0f)
-                OnMove?.Invoke(direction);
         }
+
+        _rigidbody.velocity = new Vector2(_moveSpeed * direction.x, _rigidbody.velocity.y);
+        _lastDirection = direction;
+        OnMove?.Invoke(direction, OnGround);
     }
 }

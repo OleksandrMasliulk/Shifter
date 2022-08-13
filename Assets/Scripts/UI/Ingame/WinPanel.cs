@@ -20,21 +20,21 @@ public class WinPanel : MonoBehaviour {
         PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
         if (data == null)
             data = new PlayerData();
-        if (data.LevelsProgression.ContainsKey(LevelLoader.Instance.CurrentLevel.Index))
-        {
-            _bestTimeText.text = Utils.FloatToTime(data.GetLevelTime(LevelLoader.Instance.CurrentLevel.Index));
+        // if (data.LevelsProgression.ContainsKey(LevelLoader.Instance.CurrentLevel.Index))
+        // {
+        //     _bestTimeText.text = Utils.FloatToTime(data.GetLevelTime(LevelLoader.Instance.CurrentLevel.Index));
 
-            float delta = _timeController.TimeLeft - data.GetLevelTime(LevelLoader.Instance.CurrentLevel.Index);
-            if (delta > 0) {
-                _timeDifference.text = "+";
-                _timeDifference.color = Color.green;
-            }
-            else {
-                _timeDifference.text = "-";
-                _timeDifference.color = Color.red;
-            }
-            _timeDifference.text += "" + Utils.FloatToTime(Mathf.Abs(delta));
-        }
+        //     float delta = _timeController.TimeLeft - data.GetLevelTime(LevelLoader.Instance.CurrentLevel.Index);
+        //     if (delta > 0) {
+        //         _timeDifference.text = "+";
+        //         _timeDifference.color = Color.green;
+        //     }
+        //     else {
+        //         _timeDifference.text = "-";
+        //         _timeDifference.color = Color.red;
+        //     }
+        //     _timeDifference.text += "" + Utils.FloatToTime(Mathf.Abs(delta));
+        // }
     }
 
     public void Restart() => LevelLoader.Instance.RestartCurrentLevel();
