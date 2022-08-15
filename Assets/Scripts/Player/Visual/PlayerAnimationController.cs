@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
+using System.Threading.Tasks;
 
-[RequireComponent(typeof(PlayerController))]
 public class PlayerAnimationController : MonoBehaviour {
     private const string GROUNDED = "Grounded";
     private const string JUMP = "Jump";
@@ -13,16 +13,12 @@ public class PlayerAnimationController : MonoBehaviour {
     [SerializeField] private Animator _animator;
     private PlayerMovementController _playerMovement;
 
-    private Transform _t;
+    [SerializeField] private Transform _root;
 
     [Inject]
     public void Construct(PlayerMovementController playerMovement) {
         _playerMovement = playerMovement;
     } 
-
-    private void Awake() {
-        _t = GetComponent<Transform>();
-    }
 
     private void Update() {
         SetGrounded(_playerMovement.OnGround);
@@ -47,20 +43,23 @@ public class PlayerAnimationController : MonoBehaviour {
     }
 
     private void SetDirection(Vector2 direction) {
-        Vector3 newScale;
-        if (direction.x < 0f)
-            newScale = new Vector3(-1f, _t.localScale.y, _t.localScale.z);
-        else
-            newScale = new Vector3(1f, _t.localScale.y, _t.localScale.z);
-        _t.localScale = newScale;
+        _root.localScale = new Vector3(direction.normalized.x, 1f, 1f);
+    }
+
+    private void SwapDirection() {
+        Vector3 newScale = new Vector3(-_root.localScale.x, _root.localScale.y, _root.localScale.z);
+        _root.localScale = newScale;
     }
 
     private void SetJump() {
         _animator.SetTrigger(JUMP);
     }
 
-    private void SetWallJump() {
+    private async void SetWallJump() {
         _animator.SetTrigger(WALL_JUMP);
+        await Task.Delay(10);
+
+        SwapDirection();
     }
 
     private void OnEnable() {

@@ -52,6 +52,7 @@ public class PlayerMovementController : MonoBehaviour, IMove {
 
     private void GroundJump() {
         _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jumpForce);
+        
         OnJump?.Invoke();
     }
 
@@ -59,6 +60,8 @@ public class PlayerMovementController : MonoBehaviour, IMove {
         Vector2 direction = new Vector2(-_lastDirection.x, _walljumpAngle * Mathf.Deg2Rad).normalized;
         Debug.DrawLine(transform.position, transform.position + (Vector3)direction, Color.red, 5f);
         _rigidbody.velocity = direction * _walljumpForce;
+        _lastDirection.x *= -1f;
+        
         OnWallJump?.Invoke();
         await WallJumpRecovery();
     }
