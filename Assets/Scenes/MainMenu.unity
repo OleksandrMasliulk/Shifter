@@ -220,7 +220,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8395588906797412687, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402835086447267185, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 203829563392
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402835086447267185, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:a789feb45fa264c45af06d7158e0aac8
       objectReference: {fileID: 0}
     - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -664,7 +672,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8395588906797412687, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402835086447267185, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 23101198336
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402835086447267185, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:a789feb45fa264c45af06d7158e0aac8
       objectReference: {fileID: 0}
     - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
@@ -1847,7 +1863,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8395588906797412687, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
       propertyPath: m_Name
-      value: Button (1)
+      value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402835086447267185, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 68919775232
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402835086447267185, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:a789feb45fa264c45af06d7158e0aac8
       objectReference: {fileID: 0}
     - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
@@ -2178,7 +2202,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8395588906797412687, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402835086447267185, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 203829563392
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402835086447267185, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:a789feb45fa264c45af06d7158e0aac8
       objectReference: {fileID: 0}
     - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2698,7 +2730,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8395588906797412687, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
       propertyPath: m_Name
-      value: Button (2)
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402835086447267185, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 49386901504
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402835086447267185, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:a789feb45fa264c45af06d7158e0aac8
       objectReference: {fileID: 0}
     - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
