@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Threading.Tasks;
 
 public class LevelLoader : MonoBehaviour {
-    public static LevelLoader Instance { get; private set; }
     
     [SerializeField] private SceneTransitionHandler _transitionHandler;
     [SerializeField] private GameObject _loadingScreen;
@@ -10,14 +9,6 @@ public class LevelLoader : MonoBehaviour {
     [SerializeField] private LevelSO _mainMenuLevel;
     private LevelSO _currentLevel;
     public LevelSO CurrentLevel => _currentLevel;
-
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(this.gameObject);
-    }
 
     public async void LoadLevel(LevelSO level) {
         await _transitionHandler.TransitionIn();
@@ -36,8 +27,8 @@ public class LevelLoader : MonoBehaviour {
     private async Task UnloadCurrentScene() {
         var op = _currentLevel.SceneReference.UnLoadScene();
         op.Completed += (op) => {
-            _currentLevel = null;
             _currentLevel.SceneReference.ReleaseAsset();
+            _currentLevel = null;
         };
 
         await op.Task;
@@ -52,7 +43,6 @@ public class LevelLoader : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        Instance = null;
         _currentLevel.SceneReference.ReleaseAsset();
     }
 }

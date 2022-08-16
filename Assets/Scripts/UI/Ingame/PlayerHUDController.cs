@@ -9,10 +9,6 @@ public class PlayerHUDController : MonoBehaviour {
         _gameController = gameController;
     }
 
-    public void Restart() => LevelLoader.Instance.RestartCurrentLevel();
-
-    public void MainMenu() => LevelLoader.Instance.LoadMainMenu();
-
     public void ShowHUD() => gameObject.SetActive(true);
 
     public void HideHUD() => gameObject.SetActive(false);

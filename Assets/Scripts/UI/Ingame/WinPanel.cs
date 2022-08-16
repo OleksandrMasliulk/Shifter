@@ -8,10 +8,12 @@ public class WinPanel : MonoBehaviour {
     [SerializeField] private TMP_Text _timeDifference;
 
     private TimerController _timeController;
+    private LevelLoader _levelLoader;
 
     [Inject]
-    public void Construct(TimerController timeController) {
+    public void Construct(TimerController timeController, LevelLoader levelLoader) {
         _timeController = timeController;
+        _levelLoader = levelLoader;
     }
 
     private void InitPanel() {
@@ -37,7 +39,7 @@ public class WinPanel : MonoBehaviour {
         // }
     }
 
-    public void Restart() => LevelLoader.Instance.RestartCurrentLevel();
+    public void Restart() => _levelLoader.RestartCurrentLevel();
     
-    public void MainMenu() => LevelLoader.Instance.LoadMainMenu();
+    public void MainMenu() => _levelLoader.LoadMainMenu();
 }

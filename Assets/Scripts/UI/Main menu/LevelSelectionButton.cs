@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.AddressableAssets;
+using Zenject;
 
 public class LevelSelectionButton : MonoBehaviour {
     [SerializeField] private TMP_Text _levelIndexText;
@@ -9,6 +10,14 @@ public class LevelSelectionButton : MonoBehaviour {
     [SerializeField] private Button _button;
 
     [SerializeField] private AssetReference _level;
+    private LevelSO _loadedLevel;
+
+    private LevelLoader _levelLoader;
+
+    [Inject]
+    public void Construct(LevelLoader levelLoader) {
+        _levelLoader = levelLoader;
+    }
 
     private void Awake() {
         PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
@@ -16,8 +25,10 @@ public class LevelSelectionButton : MonoBehaviour {
             data = new PlayerData();
         var op = _level.LoadAssetAsync<LevelSO>();
         op.Completed += (op) => {
-            InitVisual(data, op.Result);
-            InitButton(op.Result);
+            _loadedLevel = op.Result;
+            InitVisual(data, _loadedLevel);
+            InitButton(_loadedLevel);
+            _button.onClick.AddListener(() => _levelLoader.LoadLevel(_loadedLevel));
         };
     }
 
@@ -34,5 +45,10 @@ public class LevelSelectionButton : MonoBehaviour {
             _button.interactable = true;
         else
             _button.interactable = false;
+    }
+
+    private void OnDestroy() {
+        _loadedLevel = null;
+        _level.ReleaseAsset();
     }
 }
