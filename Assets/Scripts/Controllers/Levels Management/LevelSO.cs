@@ -23,16 +23,20 @@ public class LevelSO : ScriptableObject {
         List<LevelSO> levels = new List<LevelSO>();
         List<Task> loadTasks = new List<Task>();
         foreach(AssetReference reference in _levelsDoneRequired) {
-            var op = reference.LoadAssetAsync<LevelSO>();
-            loadTasks.Add(op.Task);
-            op.Completed += (op) => levels.Add(op.Result);
+            if (reference.OperationHandle.IsValid())
+                    levels.Add(reference.OperationHandle.Convert<LevelSO>().Result);
+            else {
+                var op = reference.LoadAssetAsync<LevelSO>();
+                loadTasks.Add(op.Task);
+                op.Completed += (op) => levels.Add(op.Result);
+            }
         }
         await Task.WhenAll(loadTasks);
 
         foreach (LevelSO level in levels)
-            if (playerData._levelProgress.GetLevelData(level.Index) == null)
+            if (!playerData._levelProgress.TryGetLevelData(level.Index, out LevelProgressData data))
                 return false;
-            else if (!playerData._levelProgress.GetLevelData(level.Index).isCompleted)
+            else if (!data.isCompleted)
                 return false;
 
         return true;

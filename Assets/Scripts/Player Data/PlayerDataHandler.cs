@@ -22,13 +22,12 @@ public class PlayerDataHandler : MonoBehaviour {
 
     public void HandleBestTime(float time) {
         float currentTime = time;
-        LevelProgressData levelData = _playerData._levelProgress.GetLevelData(_levelController.CurrentLevel.Index);
-        if (levelData == null) {
+        if (!_playerData._levelProgress.TryGetLevelData(_levelController.CurrentLevel.Index, out LevelProgressData data)) {
             _playerData._levelProgress.ModifyRecord(_levelController.CurrentLevel.Index, true, currentTime);
             SaveLoad.Save<PlayerData>(_playerData, SaveLoad.levelsDataPath);
             return;
         }
-        else if (currentTime < levelData.time) {
+        else if (currentTime < data.time) {
             _playerData._levelProgress.ModifyRecord(_levelController.CurrentLevel.Index, true, currentTime);  
             SaveLoad.Save<PlayerData>(_playerData, SaveLoad.levelsDataPath);   
         }  

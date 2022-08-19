@@ -20,14 +20,13 @@ public class WinPanel : MonoBehaviour {
 
     public void InitPanel() {
         _timeText.text = Utils.FloatToTime(_timeController.TimePassed);
-        LevelProgressData levelProgressData = _dataHandler.PlayerData._levelProgress.GetLevelData(_levelLoader.CurrentLevel.Index);
-        if (levelProgressData == null) {
+        if (!_dataHandler.PlayerData._levelProgress.TryGetLevelData(_levelLoader.CurrentLevel.Index, out LevelProgressData data)) {
             _bestTimeText.text = Utils.FloatToTime(_timeController.TimePassed);
             _timeDifference.text = "";
         }
         else {
-            _bestTimeText.text = Utils.FloatToTime(levelProgressData.time);
-            float delta = _timeController.TimePassed - levelProgressData.time;
+            _bestTimeText.text = Utils.FloatToTime(data.time);
+            float delta = _timeController.TimePassed - data.time;
             if (delta > 0) {
                 _timeDifference.text = "+";
                 _timeDifference.color = Color.red;

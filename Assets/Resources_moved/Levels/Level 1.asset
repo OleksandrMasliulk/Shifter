@@ -19,9 +19,8 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   _index: 1
   _nextLevel:
-    m_AssetGUID: f73728f36bb2c0a43ac7361c3d2cd032
+    m_AssetGUID: 77d3fda4e53a2834dbdd5e228373c172
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  _isDone: 1
   _levelsDoneRequired: []

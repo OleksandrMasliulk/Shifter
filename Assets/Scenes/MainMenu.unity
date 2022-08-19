@@ -432,13 +432,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7006693156219367103, guid: fa4903ef94c3ff545af67d3b841097ee, type: 3}
+      propertyPath: _level.m_AssetGUID
+      value: 61406bd8d4f325c438b8803c34055be9
+      objectReference: {fileID: 0}
     - target: {fileID: 8851436470510062639, guid: fa4903ef94c3ff545af67d3b841097ee, type: 3}
       propertyPath: m_Name
       value: Level Selection Button (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8851436470510062639, guid: fa4903ef94c3ff545af67d3b841097ee, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4903ef94c3ff545af67d3b841097ee, type: 3}
@@ -1257,13 +1261,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7006693156219367103, guid: fa4903ef94c3ff545af67d3b841097ee, type: 3}
+      propertyPath: _level.m_AssetGUID
+      value: e09343bb319597b47884834652536f3c
+      objectReference: {fileID: 0}
     - target: {fileID: 8851436470510062639, guid: fa4903ef94c3ff545af67d3b841097ee, type: 3}
       propertyPath: m_Name
       value: Level Selection Button (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8851436470510062639, guid: fa4903ef94c3ff545af67d3b841097ee, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4903ef94c3ff545af67d3b841097ee, type: 3}

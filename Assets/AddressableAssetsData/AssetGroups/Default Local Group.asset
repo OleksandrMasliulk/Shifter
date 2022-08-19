@@ -29,16 +29,28 @@ MonoBehaviour:
     m_Address: Assets/Scenes/Test.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: f73728f36bb2c0a43ac7361c3d2cd032
-    m_Address: Assets/Scenes/Test 1.unity
+  - m_GUID: 5e5265022708c9d48b676cf6a77cdf55
+    m_Address: Assets/Scenes/Test 2.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: c2c8c182af6d6e040824c544ee4c4b56
-    m_Address: Assets/Scenes/Test 2.unity
+  - m_GUID: c1e9f3053ed8be44da27d254a9fc34be
+    m_Address: Assets/Scenes/Test 1.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 77d3fda4e53a2834dbdd5e228373c172
     m_Address: Assets/Resources_moved/Levels/Level 2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 61406bd8d4f325c438b8803c34055be9
+    m_Address: Assets/Resources_moved/Levels/Level 3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e09343bb319597b47884834652536f3c
+    m_Address: Assets/Resources_moved/Levels/Level 4.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c5a4363446b7bb9498ac2bc78a11f7df
+    m_Address: Assets/Scenes/Test 3.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

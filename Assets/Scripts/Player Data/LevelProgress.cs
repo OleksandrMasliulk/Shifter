@@ -28,11 +28,15 @@ public class LevelProgress {
             AddRecord(level, new LevelProgressData(isCompleted, time));
     } 
 
-    public LevelProgressData GetLevelData(int key) {
-        if (_gameProgress.ContainsKey(key))
-            return _gameProgress[key];
-        else
-            return null;
+    public bool TryGetLevelData(int key, out LevelProgressData levelProgressData) {
+        if (_gameProgress.ContainsKey(key)) {
+            levelProgressData = _gameProgress[key];
+            return true;
+        }
+        else {
+            levelProgressData = null;
+            return false;
+        }
     }
 }
 

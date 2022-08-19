@@ -34,8 +34,9 @@ public class LevelSelectionButton : MonoBehaviour {
     private void InitVisual(PlayerData data, LevelSO levelData) {
         _levelIndexText.text = (levelData.Index).ToString();
 
-        // if (data.LevelsProgression.ContainsKey(levelData.Index)) 
-        //     _bestTimeText.text = Utils.FloatToTime(data.LevelsProgression[levelData.Index].bestTime);
+        if (data._levelProgress.TryGetLevelData(levelData.Index, out LevelProgressData levelProgressData)) { 
+             _bestTimeText.text = Utils.FloatToTime(levelProgressData.time);
+        }
     }
 
     private async void InitButton(LevelSO levelData) {
