@@ -65,12 +65,12 @@ public class GameController : MonoBehaviour {
     private async void OnWin() {
         OnPlayerWin?.Invoke();
 
-        //_winPanel.InitPanel();
         _timeController.StopCountdown();
+        _winPanel.InitPanel();
         _winPanel.ShowPanel(1.5f);
         _inputController.SwitchInputMode(InputController.InputMode.UI);
         await Task.Delay(1500);
-        _playerDataHandler.HandleBestTime(_timeController.TimeLeft);
+        _playerDataHandler.HandleBestTime(_timeController.TimePassed);
     }
 
     private void OnEnable() => PlayerController.OnPlayerDied += Lose;

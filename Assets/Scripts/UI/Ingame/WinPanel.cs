@@ -3,7 +3,7 @@ using TMPro;
 using Zenject;
 
 public class WinPanel : MonoBehaviour {
-    [SerializeField] private TMP_Text _timeLeftText;
+    [SerializeField] private TMP_Text _timeText;
     [SerializeField] private TMP_Text _bestTimeText;
     [SerializeField] private TMP_Text _timeDifference;
 
@@ -19,7 +19,25 @@ public class WinPanel : MonoBehaviour {
     }
 
     public void InitPanel() {
-        //_timeLeftText.text = Utils.FloatToTime(_timeController.TimeLeft);
+        _timeText.text = Utils.FloatToTime(_timeController.TimePassed);
+        LevelProgressData levelProgressData = _dataHandler.PlayerData._levelProgress.GetLevelData(_levelLoader.CurrentLevel.Index);
+        if (levelProgressData == null) {
+            _bestTimeText.text = Utils.FloatToTime(_timeController.TimePassed);
+            _timeDifference.text = "";
+        }
+        else {
+            _bestTimeText.text = Utils.FloatToTime(levelProgressData.time);
+            float delta = _timeController.TimePassed - levelProgressData.time;
+            if (delta > 0) {
+                _timeDifference.text = "+";
+                _timeDifference.color = Color.red;
+            }
+            else {
+                _timeDifference.text = "-";
+                _timeDifference.color = Color.green;
+            }
+            _timeDifference.text += Utils.FloatToTime(Mathf.Abs(delta));
+        }
     }
 
     public void ShowPanel(float delay) {

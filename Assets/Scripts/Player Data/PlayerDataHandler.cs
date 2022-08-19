@@ -28,7 +28,7 @@ public class PlayerDataHandler : MonoBehaviour {
             SaveLoad.Save<PlayerData>(_playerData, SaveLoad.levelsDataPath);
             return;
         }
-        else if (currentTime > levelData.time) {
+        else if (currentTime < levelData.time) {
             _playerData._levelProgress.ModifyRecord(_levelController.CurrentLevel.Index, true, currentTime);  
             SaveLoad.Save<PlayerData>(_playerData, SaveLoad.levelsDataPath);   
         }  

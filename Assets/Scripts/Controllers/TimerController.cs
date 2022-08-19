@@ -10,12 +10,13 @@ public class TimerController : MonoBehaviour {
 
     private float _timeLeft;
     public float TimeLeft => _timeLeft;
+    public float TimePassed => _levelTime - _timeLeft;
     private bool _isCounting;
 
     [Inject]
     public void Construct(PlayerMovementController playerMovement, float time) {   
-        _playerMovement = playerMovement;
         _levelTime = time;
+        _playerMovement = playerMovement;
     }
 
     private void Awake() {
