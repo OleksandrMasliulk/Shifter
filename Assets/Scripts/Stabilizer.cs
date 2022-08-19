@@ -1,16 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-public class Stabilizer : MonoBehaviour
-{
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        PlayerController player = collision.GetComponent<PlayerController>();
+public class Stabilizer : MonoBehaviour {
+    private GameController _gameController;
 
-        if (player != null)
-        {
-           // GameController.Instance.Win();
+    [Inject]
+    public void Construct(GameController gameController) {
+        _gameController = gameController;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.TryGetComponent<PlayerController>(out PlayerController player)) {
+            _gameController.Win();
         }
     }
 }

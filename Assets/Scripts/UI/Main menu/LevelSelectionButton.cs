@@ -12,23 +12,22 @@ public class LevelSelectionButton : MonoBehaviour {
     [SerializeField] private AssetReference _level;
     private LevelSO _loadedLevel;
 
-    private LevelLoader _levelLoader;
+    private LevelController _levelLoader;
+    private PlayerDataHandler _playerData;
 
     [Inject]
-    public void Construct(LevelLoader levelLoader) {
-        _levelLoader = levelLoader;
+    public void Construct(PlayerDataHandler playerDataHandler, LevelController levelController) {
+        _playerData = playerDataHandler;
+        _levelLoader = levelController;
     }
 
     private void Awake() {
-        PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
-        if (data == null)
-            data = new PlayerData();
         var op = _level.LoadAssetAsync<LevelSO>();
         op.Completed += (op) => {
             _loadedLevel = op.Result;
-            InitVisual(data, _loadedLevel);
+            InitVisual(_playerData.PlayerData, _loadedLevel);
             InitButton(_loadedLevel);
-            _button.onClick.AddListener(() => _levelLoader.LoadLevel(_loadedLevel));
+            _button.onClick.AddListener(() => _levelLoader.LoadLevel(_loadedLevel, true, true));
         };
     }
 
@@ -40,11 +39,8 @@ public class LevelSelectionButton : MonoBehaviour {
     }
 
     private async void InitButton(LevelSO levelData) {
-        bool isUnlocked = await levelData.CheckIfUnlocked();
-        if (isUnlocked)
-            _button.interactable = true;
-        else
-            _button.interactable = false;
+        bool isUnlocked = await levelData.CheckIfUnlocked(_playerData.PlayerData);
+        _button.interactable = isUnlocked;
     }
 
     private void OnDestroy() {

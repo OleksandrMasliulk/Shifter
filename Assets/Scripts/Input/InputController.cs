@@ -7,17 +7,13 @@ public class InputController : MonoBehaviour {
         UI
     }
 
-    [SerializeField] private InputMode _initialMode;
     private InputMapper _inputMapper;
+    private GameController _gameController;
 
     [Inject] 
     public void Construct(InputMapper inputMapper) {
         _inputMapper = inputMapper;
     } 
-
-    private void Awake() {
-        SwitchInputMode(_initialMode);
-    }
 
     public void SwitchInputMode(InputMode mode) {
         switch (mode) {
@@ -39,6 +35,11 @@ public class InputController : MonoBehaviour {
 
     private void SwitchModePlayer() {
         _inputMapper.Player.Enable();
+        _inputMapper.UI.Disable();
+    }
+
+    public void DisableAllInput() {
+        _inputMapper.Player.Disable();
         _inputMapper.UI.Disable();
     }
 }

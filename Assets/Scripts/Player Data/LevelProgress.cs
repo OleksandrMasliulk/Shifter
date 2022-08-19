@@ -1,18 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
+[System.Serializable]
 public class LevelProgress {
-    private struct LevelProgressData {
-        public bool isCompleted;
-        public float time;
-
-        public LevelProgressData(bool isCompleted, float time) {
-            this.isCompleted = isCompleted;
-            this.time = time;
-        }
-    }
-
     private Dictionary<LevelSO, LevelProgressData> _gameProgress;
 
     public LevelProgress() {
@@ -27,11 +16,33 @@ public class LevelProgress {
     }  
 
     public void ModifyRecord(LevelSO level, bool isCompleted, float time) {
-        if (_gameProgress.TryGetValue(level, out LevelProgressData data)) {
-            data.isCompleted = isCompleted;
-            data.time = time;
+        if (_gameProgress.ContainsKey(level)) {
+            if (_gameProgress.TryGetValue(level, out LevelProgressData data)) {
+                data.isCompleted = isCompleted;
+                data.time = time;
+            }
+            else
+                AddRecord(level, new LevelProgressData(isCompleted, time));
         }
         else
             AddRecord(level, new LevelProgressData(isCompleted, time));
     } 
+
+    public LevelProgressData GetLevelData(LevelSO key) {
+        if (_gameProgress.ContainsKey(key))
+            return _gameProgress[key];
+        else
+            return null;
+    }
 }
+
+[System.Serializable]
+public class LevelProgressData {
+        public bool isCompleted;
+        public float time;
+
+        public LevelProgressData(bool isCompleted, float time) {
+            this.isCompleted = isCompleted;
+            this.time = time;
+        }
+    }

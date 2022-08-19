@@ -8,38 +8,32 @@ public class WinPanel : MonoBehaviour {
     [SerializeField] private TMP_Text _timeDifference;
 
     private TimerController _timeController;
-    private LevelLoader _levelLoader;
+    private LevelController _levelLoader;
+    private PlayerDataHandler _dataHandler;
 
     [Inject]
-    public void Construct(TimerController timeController, LevelLoader levelLoader) {
+    public void Construct(TimerController timeController, LevelController levelLoader, PlayerDataHandler dataHandler) {
         _timeController = timeController;
         _levelLoader = levelLoader;
+        _dataHandler = dataHandler;
     }
 
-    private void InitPanel() {
-        _timeLeftText.text = Utils.FloatToTime(_timeController.TimeLeft);
+    public void InitPanel() {
+        //_timeLeftText.text = Utils.FloatToTime(_timeController.TimeLeft);
+    }
 
-        PlayerData data = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
-        if (data == null)
-            data = new PlayerData();
-        // if (data.LevelsProgression.ContainsKey(LevelLoader.Instance.CurrentLevel.Index))
-        // {
-        //     _bestTimeText.text = Utils.FloatToTime(data.GetLevelTime(LevelLoader.Instance.CurrentLevel.Index));
-
-        //     float delta = _timeController.TimeLeft - data.GetLevelTime(LevelLoader.Instance.CurrentLevel.Index);
-        //     if (delta > 0) {
-        //         _timeDifference.text = "+";
-        //         _timeDifference.color = Color.green;
-        //     }
-        //     else {
-        //         _timeDifference.text = "-";
-        //         _timeDifference.color = Color.red;
-        //     }
-        //     _timeDifference.text += "" + Utils.FloatToTime(Mathf.Abs(delta));
-        // }
+    public void ShowPanel(float delay) {
+        GetComponent<UIPanel>().ShowPanelDelayed(delay);
     }
 
     public void Restart() => _levelLoader.RestartCurrentLevel();
     
     public void MainMenu() => _levelLoader.LoadMainMenu();
+
+    public void NextLevel() {
+        var op = _levelLoader.CurrentLevel.NextLevel.LoadAssetAsync<LevelSO>();
+        op.Completed += (op) => {
+            _levelLoader.LoadLevel(op.Result, true, true);
+        };
+    }
 }

@@ -14,11 +14,9 @@ public class LevelSO : ScriptableObject {
     public AssetReference NextLevel => _nextLevel;
 
     [Header("Progression settings")]
-    [SerializeField] private bool _isDone;
-    public bool IsDone => _isDone;
     [SerializeField] private List<AssetReference> _levelsDoneRequired;
 
-     public async Task<bool> CheckIfUnlocked() {
+     public async Task<bool> CheckIfUnlocked(PlayerData playerData) {
         if (_levelsDoneRequired.Count == 0)
             return true;
 
@@ -32,7 +30,9 @@ public class LevelSO : ScriptableObject {
         await Task.WhenAll(loadTasks);
 
         foreach (LevelSO level in levels)
-            if (!level.IsDone)
+            if (playerData._levelProgress.GetLevelData(level) == null)
+                return false;
+            else if (!playerData._levelProgress.GetLevelData(level).isCompleted)
                 return false;
 
         return true;

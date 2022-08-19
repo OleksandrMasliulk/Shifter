@@ -1,10 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using Zenject;
 
-public class MainMenu : MonoBehaviour
-{
+public class MainMenu : MonoBehaviour {
+    private InputController _inputController;
+    
+    [Inject]
+    public void Construct(InputController inputController) {
+        _inputController = inputController;
+    }
+
+    private void Start() {
+        _inputController.SwitchInputMode(InputController.InputMode.UI);
+    }
+
     public void Quit()
     {
 #if UNITY_EDITOR

@@ -1,6 +1,7 @@
 using UnityEngine;
-using System.IO;
 using System;
+using Zenject;
+using System.Threading.Tasks;
 
 public class GameController : MonoBehaviour {
     public event Action OnPlayerWin;
@@ -11,6 +12,19 @@ public class GameController : MonoBehaviour {
     }
 
     private GameState _gameState;
+
+    private WinPanel _winPanel;
+    private PlayerDataHandler _playerDataHandler;
+    private LevelController _levelController;
+    private InputController _inputController;
+
+    [Inject]
+    public void Construct(WinPanel winPanel, PlayerDataHandler playerDataHandler, LevelController levelController, InputController inputController) {
+        _winPanel = winPanel;
+        _playerDataHandler = playerDataHandler;
+        _levelController = levelController;
+        _inputController = inputController;
+    }
 
     private void Start() => SetState(GameState.Initialization);
 
@@ -30,7 +44,8 @@ public class GameController : MonoBehaviour {
     }
 
     private void Initialize() {
-       // _timeController.Initialize(_allocatedTime);
+        _inputController.SwitchInputMode(InputController.InputMode.Player);
+       // _timeController.Initialize(_allocatedTime); 
     }
 
     private void Lose() => SetState(GameState.PlayerLose);
@@ -38,11 +53,20 @@ public class GameController : MonoBehaviour {
     private void OnLose() => Restart();
 
     public void Restart() {
+        _levelController.RestartCurrentLevel();
     }
 
     public void Win() => SetState(GameState.PlayerWin);
 
-    private void OnWin() => OnPlayerWin?.Invoke();
+    private void OnWin() {
+        OnPlayerWin?.Invoke();
+
+        //_winPanel.InitPanel();
+        _winPanel.ShowPanel(1.5f);
+        _inputController.SwitchInputMode(InputController.InputMode.UI);
+        //await Task.Delay(1500);
+        //_playerDataHandler.HandleBestTime();
+    }
 
     private void OnEnable() => PlayerController.OnPlayerDied += Lose;
 

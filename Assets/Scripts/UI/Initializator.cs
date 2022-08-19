@@ -4,10 +4,10 @@ using UnityEngine.Localization.Settings;
 using System.Threading.Tasks;
 
 public class Initializator : MonoBehaviour {
-    private LevelLoader _levelLoader;
+    private LevelController _levelLoader;
 
     [Inject]
-    public void Construct(LevelLoader levelLoader) {
+    public void Construct(LevelController levelLoader) {
         _levelLoader = levelLoader;
     }  
 
