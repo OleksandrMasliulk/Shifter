@@ -18,7 +18,7 @@ public class TimerController : MonoBehaviour {
         _levelTime = time;
     }
 
-    private void Start() {
+    private void Awake() {
         _timeLeft = _levelTime;
     }
 
@@ -34,7 +34,7 @@ public class TimerController : MonoBehaviour {
         }
     }
 
-    public void StartCountdown() => _isCounting = true;
+    private void StartCountdown() => _isCounting = true;
 
     public void StopCountdown() => _isCounting = false;
 

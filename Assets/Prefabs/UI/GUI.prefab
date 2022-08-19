@@ -581,6 +581,34 @@ PrefabInstance:
       propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
       value: GUID:a789feb45fa264c45af06d7158e0aac8
       objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 762294693504006903}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WinPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
 --- !u!1 &4962775563370490960 stripped
@@ -727,6 +755,34 @@ PrefabInstance:
       propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
       value: GUID:a789feb45fa264c45af06d7158e0aac8
       objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 762294693504006903}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WinPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
 --- !u!1 &1259017059788932452 stripped
@@ -869,6 +925,34 @@ PrefabInstance:
     - target: {fileID: 8402835086447267185, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
       propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
       value: GUID:a789feb45fa264c45af06d7158e0aac8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 762294693504006903}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WinPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419847934310638068, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0387528f8b7cf479a7c76a4e3dcc1b, type: 3}

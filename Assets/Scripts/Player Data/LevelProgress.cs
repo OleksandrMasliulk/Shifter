@@ -2,20 +2,20 @@ using System.Collections.Generic;
 
 [System.Serializable]
 public class LevelProgress {
-    private Dictionary<LevelSO, LevelProgressData> _gameProgress;
+    private Dictionary<int, LevelProgressData> _gameProgress;
 
     public LevelProgress() {
-        _gameProgress = new Dictionary<LevelSO, LevelProgressData>();
+        _gameProgress = new Dictionary<int, LevelProgressData>();
     }
 
-    private void AddRecord(LevelSO level, LevelProgressData levelData) {
+    private void AddRecord(int level, LevelProgressData levelData) {
         if (_gameProgress.ContainsKey(level))
             throw new System.Exception($"Game Progress dictionary already contains {level} key.");
 
         _gameProgress.Add(level, levelData);
     }  
 
-    public void ModifyRecord(LevelSO level, bool isCompleted, float time) {
+    public void ModifyRecord(int level, bool isCompleted, float time) {
         if (_gameProgress.ContainsKey(level)) {
             if (_gameProgress.TryGetValue(level, out LevelProgressData data)) {
                 data.isCompleted = isCompleted;
@@ -28,7 +28,7 @@ public class LevelProgress {
             AddRecord(level, new LevelProgressData(isCompleted, time));
     } 
 
-    public LevelProgressData GetLevelData(LevelSO key) {
+    public LevelProgressData GetLevelData(int key) {
         if (_gameProgress.ContainsKey(key))
             return _gameProgress[key];
         else

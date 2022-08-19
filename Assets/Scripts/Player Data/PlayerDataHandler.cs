@@ -14,20 +14,22 @@ public class PlayerDataHandler : MonoBehaviour {
 
     private void Awake() {
          _playerData = SaveLoad.Load<PlayerData>(SaveLoad.levelsDataPath);
-         if (_playerData == null) 
+         if (_playerData == null) {
              _playerData = new PlayerData();
+             SaveLoad.Save<PlayerData>(_playerData, SaveLoad.levelsDataPath);
+         }
     }
 
     public void HandleBestTime(float time) {
         float currentTime = time;
-        LevelProgressData levelData = _playerData._levelProgress.GetLevelData(_levelController.CurrentLevel);
+        LevelProgressData levelData = _playerData._levelProgress.GetLevelData(_levelController.CurrentLevel.Index);
         if (levelData == null) {
-            _playerData._levelProgress.ModifyRecord(_levelController.CurrentLevel, true, currentTime);
+            _playerData._levelProgress.ModifyRecord(_levelController.CurrentLevel.Index, true, currentTime);
             SaveLoad.Save<PlayerData>(_playerData, SaveLoad.levelsDataPath);
             return;
         }
         else if (currentTime > levelData.time) {
-            _playerData._levelProgress.ModifyRecord(_levelController.CurrentLevel, true, currentTime);  
+            _playerData._levelProgress.ModifyRecord(_levelController.CurrentLevel.Index, true, currentTime);  
             SaveLoad.Save<PlayerData>(_playerData, SaveLoad.levelsDataPath);   
         }  
     }

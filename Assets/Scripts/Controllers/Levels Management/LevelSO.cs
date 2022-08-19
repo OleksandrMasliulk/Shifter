@@ -30,9 +30,9 @@ public class LevelSO : ScriptableObject {
         await Task.WhenAll(loadTasks);
 
         foreach (LevelSO level in levels)
-            if (playerData._levelProgress.GetLevelData(level) == null)
+            if (playerData._levelProgress.GetLevelData(level.Index) == null)
                 return false;
-            else if (!playerData._levelProgress.GetLevelData(level).isCompleted)
+            else if (!playerData._levelProgress.GetLevelData(level.Index).isCompleted)
                 return false;
 
         return true;
