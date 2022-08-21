@@ -7,7 +7,7 @@ public class TimerController : MonoBehaviour {
 
     private PlayerMovementController _playerMovement;
     private float _levelTime;
-
+    public float AllocatedTime => _levelTime;
     private float _timeLeft;
     public float TimeLeft => _timeLeft;
     public float TimePassed => _levelTime - _timeLeft;

@@ -6,15 +6,15 @@ public class PlayerVFXController : MonoBehaviour {
     [SerializeField] private ParticleSystem _jumpParticles;
     [SerializeField] private ParticleSystem _wallSlideParticles;      
     [SerializeField] private ParticleSystem _wallJumpParticles;
+    [SerializeField] private ParticleSystem _blinkStartParticles;
+    [SerializeField] private ParticleSystem _blinkEndParticles;
 
     [SerializeField] private PostFXSO _blinkPostFX;
 
     private PlayerBlinkController _blinkController;
-    private PostFXHandler _postFXHandler;
 
     [Inject]
-    public void Construct(PostFXHandler postFXHandler, PlayerBlinkController blinkController) {
-        _postFXHandler = postFXHandler;
+    public void Construct(PlayerBlinkController blinkController) {
         _blinkController = blinkController;
     }
 
@@ -24,6 +24,14 @@ public class PlayerVFXController : MonoBehaviour {
 
     public void PlayWallJumpParticles() {
         _wallJumpParticles.Play();
+    }
+
+    private void PlayBlinkStartParticles() {
+        _blinkStartParticles.Play();
+    }
+
+    private void PlayBlinkEndParticles() {
+        _blinkEndParticles.Play();
     }
 
     private void PlayStepParticles() {
@@ -59,10 +67,14 @@ public class PlayerVFXController : MonoBehaviour {
     }
 
     private void OnEnable() {
-        _blinkController.OnBlink += PlayBlinkPostFX;
+        _blinkController.OnAfterBlink += PlayBlinkPostFX;
+        _blinkController.OnBeforeBlink += PlayBlinkStartParticles;
+        _blinkController.OnAfterBlink += PlayBlinkEndParticles;
     }
 
     private void OnDisable() {
-        _blinkController.OnBlink -= PlayBlinkPostFX;
+        _blinkController.OnAfterBlink -= PlayBlinkPostFX;
+        _blinkController.OnBeforeBlink -= PlayBlinkStartParticles;
+        _blinkController.OnAfterBlink -= PlayBlinkEndParticles;
     }
 }

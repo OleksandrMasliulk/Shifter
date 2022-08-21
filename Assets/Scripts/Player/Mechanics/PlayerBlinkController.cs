@@ -3,8 +3,9 @@ using System;
 
 [RequireComponent(typeof(PlayerController))]
 public class PlayerBlinkController : MonoBehaviour {
-    public event Action OnBlink;
-   
+    public event Action OnAfterBlink;
+    public event Action OnBeforeBlink;
+
     [SerializeField] private float _blinkDistance;
     [SerializeField] private float _blinkCooldown;
     [SerializeField] private LayerMask _obstacleLayer;
@@ -27,8 +28,9 @@ public class PlayerBlinkController : MonoBehaviour {
         if (!_canBlink)
             return;
 
+        OnBeforeBlink?.Invoke();
         transform.position = CalculateBlinkPosition(direction);
-        OnBlink?.Invoke();
+        OnAfterBlink?.Invoke();
         _canBlink = false;
         _timeToCD = _blinkCooldown;
     }

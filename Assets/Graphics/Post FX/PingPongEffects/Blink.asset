@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Blink
   m_EditorClassIdentifier: 
   _profile: {fileID: 11400000, guid: 6e43b83e7bfd3824796da1532e6530e9, type: 2}
-  _time: 2
+  _time: 0.1
   _priority: 1
