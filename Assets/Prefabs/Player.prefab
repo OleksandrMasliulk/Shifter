@@ -430,6 +430,7 @@ MonoBehaviour:
   _jumpParticles: {fileID: 1082792356709629412}
   _wallSlideParticles: {fileID: 1327488552749342213}
   _wallJumpParticles: {fileID: 2156087163465063877}
+  _blinkPostFX: {fileID: 11400000, guid: 2caf23e98398ecb41a6cee886945a830, type: 2}
 --- !u!114 &956827443979498371
 MonoBehaviour:
   m_ObjectHideFlags: 0

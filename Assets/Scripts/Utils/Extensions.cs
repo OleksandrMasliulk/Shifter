@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Threading.Tasks;
 using UnityEngine.AddressableAssets;
+using System.Collections;
+using UnityEngine.Rendering;
 
 public static class Extensions {
     public static async Task AnimationAsTask(this Animation anim, string animName)  {
@@ -32,5 +34,5 @@ public static class Extensions {
         }
 
         return returnAsset;
-    }
+    } 
 }

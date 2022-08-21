@@ -1,7 +1,10 @@
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(PlayerController))]
 public class PlayerBlinkController : MonoBehaviour {
+    public event Action OnBlink;
+   
     [SerializeField] private float _blinkDistance;
     [SerializeField] private float _blinkCooldown;
     [SerializeField] private LayerMask _obstacleLayer;
@@ -25,6 +28,7 @@ public class PlayerBlinkController : MonoBehaviour {
             return;
 
         transform.position = CalculateBlinkPosition(direction);
+        OnBlink?.Invoke();
         _canBlink = false;
         _timeToCD = _blinkCooldown;
     }
