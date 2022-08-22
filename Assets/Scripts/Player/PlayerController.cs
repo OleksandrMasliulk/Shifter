@@ -4,7 +4,7 @@ using Zenject;
 
 public class PlayerController : MonoBehaviour
 {
-    public static event Action OnPlayerDied;
+    public event Action OnPlayerDied;
 
     private TimerController _timeController;
 

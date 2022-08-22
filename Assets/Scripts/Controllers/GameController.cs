@@ -18,16 +18,18 @@ public class GameController : MonoBehaviour {
     private LevelController _levelController;
     private InputController _inputController;
     private TimerController _timeController;
+    private PlayerController _playerController;
 
     [Inject]
     public void Construct(WinPanel winPanel, PlayerDataHandler playerDataHandler,
          LevelController levelController, InputController inputController,
-         TimerController timerController) {
+         TimerController timerController, PlayerController playerController) {
         _winPanel = winPanel;
         _playerDataHandler = playerDataHandler;
         _levelController = levelController;
         _inputController = inputController;
         _timeController = timerController;
+        _playerController = playerController;
     }
 
     private void Start() => SetState(GameState.Initialization);
@@ -54,7 +56,11 @@ public class GameController : MonoBehaviour {
 
     private void Lose() => SetState(GameState.PlayerLose);
 
-    private void OnLose() => Restart();
+    private async void OnLose() {
+        _inputController.DisableAllInput();
+        await Task.Delay(1500);
+        Restart();
+    }
 
     public void Restart() {
         _levelController.RestartCurrentLevel();
@@ -73,7 +79,7 @@ public class GameController : MonoBehaviour {
         _playerDataHandler.HandleBestTime(_timeController.TimePassed);
     }
 
-    private void OnEnable() => PlayerController.OnPlayerDied += Lose;
+    private void OnEnable() => _playerController.OnPlayerDied += Lose;
 
-    private void OnDisable() => PlayerController.OnPlayerDied -= Lose;
+    private void OnDisable() => _playerController.OnPlayerDied -= Lose;
 }

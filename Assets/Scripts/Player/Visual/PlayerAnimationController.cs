@@ -8,15 +8,18 @@ public class PlayerAnimationController : MonoBehaviour {
     private const string WALL = "Wall";
     private const string WALL_JUMP = "WallJump";
     private const string MOVING = "Moving";
+    private const string DIE = "Die";
     
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private Animator _animator;
-    private PlayerMovementController _playerMovement;
-
     [SerializeField] private Transform _root;
 
+    private PlayerMovementController _playerMovement;
+    private PlayerController _playerController;
+
     [Inject]
-    public void Construct(PlayerMovementController playerMovement) {
+    public void Construct(PlayerMovementController playerMovement, PlayerController playerController) {
+        _playerController = playerController;
         _playerMovement = playerMovement;
     } 
 
@@ -62,7 +65,12 @@ public class PlayerAnimationController : MonoBehaviour {
         SwapDirection();
     }
 
+    private void SetDie() {
+        _animator.SetTrigger(DIE);
+    }
+
     private void OnEnable() {
+        _playerController.OnPlayerDied += SetDie;
         _playerMovement.OnMove += SetMoving;
         _playerMovement.OnStopMove += StopMoving;
         _playerMovement.OnJump += SetJump;
@@ -70,6 +78,7 @@ public class PlayerAnimationController : MonoBehaviour {
     }
 
     private void OnDisable() {
+        _playerController.OnPlayerDied -= SetDie;
         _playerMovement.OnMove -= SetMoving;
         _playerMovement.OnStopMove -= StopMoving;
         _playerMovement.OnJump -= SetJump;
