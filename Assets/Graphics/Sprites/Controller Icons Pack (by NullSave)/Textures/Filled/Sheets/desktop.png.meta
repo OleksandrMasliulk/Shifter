@@ -161,7 +161,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mouse None
+      name: desktop_0
       rect:
         serializedVersion: 2
         x: 0
@@ -169,20 +169,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fec144429060b74a810db5cff4308e7
-      internalID: 21300000
+      spriteID: c58c919b70a7fd841aa4a7b8493e9fe2
+      internalID: -1161732958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mouse Left
+      name: desktop_1
       rect:
         serializedVersion: 2
         x: 128
@@ -190,20 +190,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e6a744bbea322144a0ca384564d7cbd
-      internalID: 21300002
+      spriteID: f6686b5a1067b994b8cf13b5b8c7162e
+      internalID: 1632631670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mouse Center
+      name: desktop_2
       rect:
         serializedVersion: 2
         x: 256
@@ -211,41 +211,41 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 597a833c722eb1846873e4fefd7c0abf
-      internalID: 21300004
+      spriteID: 7706f8f7fcc0e434092bd47d9a253639
+      internalID: -1729501635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mouse Right
+      name: desktop_3
       rect:
         serializedVersion: 2
         x: 384
-        y: 383
+        y: 384
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcef57f64ee5a5344ac23286f2cb3cae
-      internalID: 21300006
+      spriteID: 94b61c98f4bdd2c4b9693a03528370c3
+      internalID: -535424976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DKeys Empty 1
+      name: desktop_4
       rect:
         serializedVersion: 2
         x: 0
@@ -253,20 +253,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c483b185b03e464e815b0963e7d9b7a
-      internalID: 21300008
+      spriteID: 76c3f2ec120e5f74391432898ac77737
+      internalID: -285815707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AWSD 1
+      name: desktop_5
       rect:
         serializedVersion: 2
         x: 128
@@ -274,20 +274,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3486658405bed704d8b54270ba4d26aa
-      internalID: 21300010
+      spriteID: d54bdbeed59f1774a9fc969845b4fe7c
+      internalID: 1234755682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Arrows 1
+      name: desktop_6
       rect:
         serializedVersion: 2
         x: 256
@@ -295,20 +295,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8aec95917c5674f4da9d7ee77e7511b3
-      internalID: 21300012
+      spriteID: 677a0b1d7e4e1f34991275cca2e4807f
+      internalID: 226894470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard Key
+      name: desktop_7
       rect:
         serializedVersion: 2
         x: 384
@@ -316,20 +316,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee74a35dbf196344daaffa4d9495b113
-      internalID: 21300014
+      spriteID: 7f6546b4091f34d48be673b0f283f8e7
+      internalID: -1236273132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DKeys Empty 2
+      name: desktop_8
       rect:
         serializedVersion: 2
         x: 0
@@ -337,20 +337,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9d0cf5271d340546886dc4a44bd879a
-      internalID: 21300016
+      spriteID: 8999f37611e3b3d48bd107f2569f8fd9
+      internalID: -1807073236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AWSD 2
+      name: desktop_9
       rect:
         serializedVersion: 2
         x: 128
@@ -358,20 +358,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e57774c805fd72142ad7afec4e0afc6f
-      internalID: 21300018
+      spriteID: 8ea0a2b145b961e4d952781ca5ec93b8
+      internalID: -868844697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Arrows 2
+      name: desktop_10
       rect:
         serializedVersion: 2
         x: 256
@@ -379,14 +379,14 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8d3fcdfbef68be43b822b3741795aa4
-      internalID: 21300020
+      spriteID: 62f4a0e9ef77cec4f9fb53bc7c220d5d
+      internalID: -138430140
       vertices: []
       indices: 
       edges: []
@@ -402,17 +402,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mouse None: 21300000
-      Mouse Left: 21300002
-      Arrows 1: 21300012
-      Keyboard Key: 21300014
-      Mouse Right: 21300006
-      AWSD 1: 21300010
-      DKeys Empty 1: 21300008
-      Mouse Center: 21300004
-      DKeys Empty 2: 21300016
-      AWSD 2: 21300018
-      Arrows 2: 21300020
+      desktop_2: -1729501635
+      desktop_4: -285815707
+      desktop_6: 226894470
+      desktop_7: -1236273132
+      desktop_10: -138430140
+      desktop_8: -1807073236
+      desktop_5: 1234755682
+      desktop_3: -535424976
+      desktop_9: -868844697
+      desktop_0: -1161732958
+      desktop_1: 1632631670
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -56,6 +56,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2471007560133389754}
   - component: {fileID: 5109783926442452681}
+  - component: {fileID: 2469200882479517255}
+  - component: {fileID: 5159823231272024755}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -90,6 +92,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09e29f209a5451478d9f519390c9421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2469200882479517255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7749866910041959333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: af5287c7ae3b32b41bad4b3bd6461fc5, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &5159823231272024755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7749866910041959333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a563e946c1deb14a8f9cfb501601b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keyboardBindings:
+    m_AssetGUID: f4059dbeadd66764dae08c8961ab28c9
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  _xboxBindings:
+    m_AssetGUID: 2456c8f8bd0fced4498e1605ca84a0e1
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  _psBindings:
+    m_AssetGUID: 66b36c4d176978f42b5055dcb7e4d351
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1001 &213767250026459892
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,14 +1,14 @@
 using UnityEngine;
 using Zenject;
+using UnityEngine.InputSystem;
 
 public class InputController : MonoBehaviour {
     public enum InputMode {
         Player,
         UI
     }
-
     private InputMapper _inputMapper;
-    private GameController _gameController;
+    private PlayerInput _playerInput;
 
     [Inject] 
     public void Construct(InputMapper inputMapper) {

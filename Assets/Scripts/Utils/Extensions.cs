@@ -1,8 +1,7 @@
 using UnityEngine;
 using System.Threading.Tasks;
 using UnityEngine.AddressableAssets;
-using System.Collections;
-using UnityEngine.Rendering;
+using UnityEngine.InputSystem;
 
 public static class Extensions {
     public static async Task AnimationAsTask(this Animation anim, string animName)  {
@@ -34,5 +33,17 @@ public static class Extensions {
         }
 
         return returnAsset;
+    } 
+
+    public static string GetBindingControlPath(this InputAction action, string controlScheme) {
+        var bindingIndex = action.GetBindingIndex(group: controlScheme);
+        var displayString = action.GetBindingDisplayString(bindingIndex, out var device, out var controlPath);
+        
+        if (device.Contains("X"))
+            device = "XInputController";
+        else if (device.Contains("DualShock"))
+            device = "DualShockGamepad";
+
+        return controlPath;
     } 
 }

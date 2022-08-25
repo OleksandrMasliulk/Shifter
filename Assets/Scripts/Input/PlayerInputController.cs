@@ -3,7 +3,7 @@ using Zenject;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerController))]
-public class PlayerInput : MonoBehaviour {
+public class PlayerInputController : MonoBehaviour {
     private InputMapper _inputMapper;
     private PlayerMovementController _movementController;
     private PlayerBlinkController _blinkController;

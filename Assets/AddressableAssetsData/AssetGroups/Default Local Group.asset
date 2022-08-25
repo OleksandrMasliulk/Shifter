@@ -53,6 +53,18 @@ MonoBehaviour:
     m_Address: Assets/Scenes/Test 3.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: f4059dbeadd66764dae08c8961ab28c9
+    m_Address: Assets/Input/Keyboard.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2456c8f8bd0fced4498e1605ca84a0e1
+    m_Address: Assets/Input/XBox.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 66b36c4d176978f42b5055dcb7e4d351
+    m_Address: Assets/Input/PS4.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e7474f748dc033749b9af6db0f6722b2, type: 2}
   m_SchemaSet:

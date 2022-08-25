@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: XboxKeys
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 3297db7af64f9d8439c699ada2dcd6aa, type: 3}
+    - {fileID: 2800000, guid: 9bb95854ab3101349a8f7f1c2f4459da, type: 3}
+    - {fileID: 2800000, guid: cb637cfbdedaf454f85f738a680d70ff, type: 3}
+    - {fileID: 2800000, guid: 9e7e0fccdab146c41bf4f9fcb18360e4, type: 3}
+    - {fileID: 2800000, guid: ac97b057d8863dc4594603b7ffe974d8, type: 3}
+    - {fileID: 2800000, guid: 403b25b0d702a534d850e05abd67572b, type: 3}
+    - {fileID: 2800000, guid: 778a6250acf5a364da674cd73d8dc275, type: 3}
+    - {fileID: 2800000, guid: 2b7ebb5184ceea3418faec37c268d2f2, type: 3}
+    - {fileID: 2800000, guid: 20adb9f73916888438fa4538f5af0ee5, type: 3}
+    - {fileID: 2800000, guid: 2cb797c8dd4227640baca2be16dcdfa0, type: 3}
+    - {fileID: 2800000, guid: 9b43746eaaf6edc4dbcabd479ee5e298, type: 3}
+    - {fileID: 2800000, guid: 79987df4f6608cd40bc2fcca40c43b3a, type: 3}
+    - {fileID: 2800000, guid: 93005d7c78f62c848a8ed9632b6bab86, type: 3}
+    - {fileID: 2800000, guid: 5aff8e0715bf0c74fa11f96246ee269d, type: 3}
+    - {fileID: 2800000, guid: 8e6e7d0c6b709b4468fa7a923b7835a1, type: 3}
+    - {fileID: 2800000, guid: 16fdbda29c1a7834380ee5485601d1ad, type: 3}
+    - {fileID: 2800000, guid: a411d579661b669469e66dbb6f54aea8, type: 3}
+    - {fileID: 2800000, guid: edd19f880236a6d408eadd497240f682, type: 3}
+    - {fileID: 2800000, guid: 518897a7f236a7a4793bfa42db2d4c52, type: 3}
+    - {fileID: 2800000, guid: c85991664de1ef64e9bbcd3824eb087c, type: 3}
+    - {fileID: 2800000, guid: 62ea688d7bd74b04eb6e7bfd21fa576b, type: 3}
+    - {fileID: 2800000, guid: 0e1166eb71249a34da1aaf64850870e5, type: 3}
+    - {fileID: 2800000, guid: b34b92dcd8983094ab0112eed8227794, type: 3}
+    - {fileID: 2800000, guid: ec3866ff0db237041a08dd248ec1a46c, type: 3}
+    - {fileID: 2800000, guid: 46ac19775fda65d43a6d76c8c29b8de4, type: 3}
+    - {fileID: 2800000, guid: 19923acb94cfed64ca4655f5b4595a94, type: 3}
+    - {fileID: 2800000, guid: 95bc7a5ccf7728c4d882e2de49c73905, type: 3}
+    - {fileID: 2800000, guid: e666b23924bb3c74690143d1f039621e, type: 3}
+    - {fileID: 2800000, guid: 5a124c1bebc30c8488cf3be651b901bf, type: 3}
+    - {fileID: 2800000, guid: c336a88d7e0d32f46bda462ef3a7f2ed, type: 3}
+    - {fileID: 2800000, guid: f2eae1b4d8c2e69468861f39e78cfc8d, type: 3}
+    - {fileID: 2800000, guid: a37f6f9dc313b3e4987cd6d760d0b03f, type: 3}
+    - {fileID: 2800000, guid: d4e7e3bcecd8cb44a891bd153f0df30d, type: 3}
+    - {fileID: 2800000, guid: 43d4dc2c6754a9444854c664d4eb3791, type: 3}
+    - {fileID: 2800000, guid: 243ad1fe326bf5e4e8afbcc56f2d1b43, type: 3}
+    - {fileID: 2800000, guid: 642d55f37f68d254290b7126eb872275, type: 3}
+    - {fileID: 2800000, guid: 7242f89c6b8883440b398d0013307c25, type: 3}
+    - {fileID: 2800000, guid: 4ff5bedbe3ed793479df44c2e7fce9c9, type: 3}
+    - {fileID: 2800000, guid: 4468b6c4c190a94499989f03f731f069, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 778a6250acf5a364da674cd73d8dc275, type: 3}
+  - {fileID: 21300000, guid: 403b25b0d702a534d850e05abd67572b, type: 3}
+  - {fileID: 21300000, guid: 2b7ebb5184ceea3418faec37c268d2f2, type: 3}
+  - {fileID: 21300000, guid: 16fdbda29c1a7834380ee5485601d1ad, type: 3}
+  - {fileID: 21300000, guid: 642d55f37f68d254290b7126eb872275, type: 3}
+  - {fileID: 21300000, guid: 9bb95854ab3101349a8f7f1c2f4459da, type: 3}
+  - {fileID: 21300000, guid: f2eae1b4d8c2e69468861f39e78cfc8d, type: 3}
+  - {fileID: 21300000, guid: 4468b6c4c190a94499989f03f731f069, type: 3}
+  - {fileID: 21300000, guid: 79987df4f6608cd40bc2fcca40c43b3a, type: 3}
+  - {fileID: 21300000, guid: c85991664de1ef64e9bbcd3824eb087c, type: 3}
+  - {fileID: 21300000, guid: 5aff8e0715bf0c74fa11f96246ee269d, type: 3}
+  - {fileID: 21300000, guid: ac97b057d8863dc4594603b7ffe974d8, type: 3}
+  - {fileID: 21300000, guid: 46ac19775fda65d43a6d76c8c29b8de4, type: 3}
+  - {fileID: 21300000, guid: 518897a7f236a7a4793bfa42db2d4c52, type: 3}
+  - {fileID: 21300000, guid: 20adb9f73916888438fa4538f5af0ee5, type: 3}
+  - {fileID: 21300000, guid: edd19f880236a6d408eadd497240f682, type: 3}
+  - {fileID: 21300000, guid: 2cb797c8dd4227640baca2be16dcdfa0, type: 3}
+  - {fileID: 21300000, guid: e666b23924bb3c74690143d1f039621e, type: 3}
+  - {fileID: 21300000, guid: a411d579661b669469e66dbb6f54aea8, type: 3}
+  - {fileID: 21300000, guid: 3297db7af64f9d8439c699ada2dcd6aa, type: 3}
+  - {fileID: 21300000, guid: 5a124c1bebc30c8488cf3be651b901bf, type: 3}
+  - {fileID: 21300000, guid: 19923acb94cfed64ca4655f5b4595a94, type: 3}
+  - {fileID: 21300000, guid: 4ff5bedbe3ed793479df44c2e7fce9c9, type: 3}
+  - {fileID: 21300000, guid: 0e1166eb71249a34da1aaf64850870e5, type: 3}
+  - {fileID: 21300000, guid: cb637cfbdedaf454f85f738a680d70ff, type: 3}
+  - {fileID: 21300000, guid: 8e6e7d0c6b709b4468fa7a923b7835a1, type: 3}
+  - {fileID: 21300000, guid: 43d4dc2c6754a9444854c664d4eb3791, type: 3}
+  - {fileID: 21300000, guid: 95bc7a5ccf7728c4d882e2de49c73905, type: 3}
+  - {fileID: 21300000, guid: 93005d7c78f62c848a8ed9632b6bab86, type: 3}
+  - {fileID: 21300000, guid: 7242f89c6b8883440b398d0013307c25, type: 3}
+  - {fileID: 21300000, guid: d4e7e3bcecd8cb44a891bd153f0df30d, type: 3}
+  - {fileID: 21300000, guid: 9e7e0fccdab146c41bf4f9fcb18360e4, type: 3}
+  - {fileID: 21300000, guid: b34b92dcd8983094ab0112eed8227794, type: 3}
+  - {fileID: 21300000, guid: 62ea688d7bd74b04eb6e7bfd21fa576b, type: 3}
+  - {fileID: 21300000, guid: c336a88d7e0d32f46bda462ef3a7f2ed, type: 3}
+  - {fileID: 21300000, guid: a37f6f9dc313b3e4987cd6d760d0b03f, type: 3}
+  - {fileID: 21300000, guid: 9b43746eaaf6edc4dbcabd479ee5e298, type: 3}
+  - {fileID: 21300000, guid: 243ad1fe326bf5e4e8afbcc56f2d1b43, type: 3}
+  - {fileID: 21300000, guid: ec3866ff0db237041a08dd248ec1a46c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - rb_empty
+  - rt
+  - rb
+  - joystick1_left
+  - button_a
+  - trigger1_r2
+  - button_menu
+  - bumper1_blank
+  - lb
+  - dpad1_up
+  - joystick1_right
+  - rt_empty
+  - dpad1
+  - dpad1_vertical
+  - lt_empty
+  - joystick1_empty
+  - lt
+  - button_y
+  - joystick1_empty_press
+  - xbox
+  - button_x
+  - controller_xbox
+  - bumper1_l1
+  - dpad1_left
+  - trigger1_l2
+  - joystick1_left_press
+  - button_cross
+  - console_xbox
+  - joystick1_right_press
+  - bumper1_r1
+  - button_empty
+  - trigger1_empty
+  - dpad1_horizontal
+  - dpad1_right
+  - button_view
+  - button_home
+  - lb_empty
+  - button_b
+  - dpad1_down
+  m_RenderDataMap: {}
+  m_Tag: XboxKeys
+  m_IsVariant: 0

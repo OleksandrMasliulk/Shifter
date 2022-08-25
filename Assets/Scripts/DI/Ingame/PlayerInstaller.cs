@@ -6,8 +6,9 @@ public class PlayerInstaller : MonoInstaller {
 
     public override void InstallBindings() {
         Container.Bind<PlayerMovementController>().FromComponentOn(_player.gameObject).AsSingle();
-        Container.Bind<PlayerBlinkController>().FromComponentOn(_player.gameObject).AsSingle();
-        
+        //Container.Bind<PlayerBlinkController>().FromComponentOn(_player.gameObject).AsSingle();
+        Container.BindInterfacesAndSelfTo<PlayerBlinkController>().FromComponentOn(_player.gameObject).AsSingle();
+
         Container.BindInstance<PlayerController>(_player).AsSingle();
     }
 }

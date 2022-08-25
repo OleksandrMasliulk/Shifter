@@ -2,15 +2,18 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(PlayerController))]
-public class PlayerBlinkController : MonoBehaviour {
+public class PlayerBlinkController : MonoBehaviour, IRechargable {
     public event Action OnAfterBlink;
     public event Action OnBeforeBlink;
 
     [SerializeField] private float _blinkDistance;
+    public float RechargeTime => _blinkCooldown;
     [SerializeField] private float _blinkCooldown;
-    [SerializeField] private LayerMask _obstacleLayer;
-    private bool _canBlink;
     private float _timeToCD;
+    public float TimeToRecharge => _timeToCD;
+    private bool _canBlink;
+
+    [SerializeField] private LayerMask _obstacleLayer;
 
     private void Awake() {
         _canBlink = true;
